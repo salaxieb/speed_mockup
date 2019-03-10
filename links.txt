@@ -82,3 +82,6 @@ sudo npm install -g body-parser
 
 sudo a2enmod ssl
 sudo service apache2 restart
+
+
+sudo httpd -k restart
