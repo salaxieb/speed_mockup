@@ -1,7 +1,7 @@
 angular.module('speed', ['ui.router']);
 
-// const server_uri = "http://ec2-18-197-208-44.eu-central-1.compute.amazonaws.com/api/";
-const server_uri = "http://localhost:3000/";
+const server_uri = "http://ec2-18-197-208-44.eu-central-1.compute.amazonaws.com/api/";
+// const server_uri = "http://localhost:3000/";
 
 function ColorBasedOnRating(rating){
 	//red = (200;20;20)
