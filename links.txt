@@ -1,0 +1,84 @@
+https://medium.com/@LindaVivah/the-beginners-guide-understanding-node-js-express-js-fundamentals-e15493462be1
+https://code.tutsplus.com/tutorials/creating-a-blogging-app-using-angular-mongodb-show-post--cms-30140
+https://code.tutsplus.com/tutorials/creating-a-blogging-app-using-angular-mongodb-login--cms-30125
+https://ui-router.github.io/ng1/
+
+https://dev.to/aurelkurtula/building-a-restful-api-with-express-and-mongodb--3mmh
+
+https://stackoverflow.com/questions/8233014/how-do-i-search-for-an-object-by-its-objectid-in-the-console
+
+https://enable-cors.org/server_expressjs.html
+
+https://stackoverflow.com/questions/35686456/http-and-stateparams-in-resolve-of-stateprovider-unknown-provider-error
+
+https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-18-04-quickstart
+
+https://www.digitalocean.com/community/questions/sudo-ufw-status-return-inactive
+
+https://docs.aws.amazon.com/en_us/efs/latest/ug/wt2-apache-web-server.html
+
+https://stackoverflow.com/questions/26245942/how-do-i-leave-node-js-server-on-ec2-running-forever - launch forever
+
+//////full installation to aws ubuntu system//////////
+sudo apt update
+sudo apt install apache2
+y
+sudo ufw allow 'Apache'
+sudo ufw enable
+y
+sudo systemctl status apache2
+^C
+cd /var/www/
+sudo git clone https://github.com/salaxieb/speed_mockup.git
+
+$  sudo mkdir sampledir  
+$  sudo chown  ec2-user sampledir
+$  sudo chmod -R o+r sampledir
+$  cd sampledir    
+
+sudo chown -R $USER:$USER /var/www/speed_mockup
+sudo chmod -R 755 /var/www/speed_mockup
+sudo nano /etc/apache2/sites-available/speed_mockup.conf
+
+<VirtualHost *:80>
+ ServerName example.com
+ <Location /api/>
+   ProxyPass http://localhost:3000/
+   ProxyPassReverse http://localhost:3000/
+ </Location>
+</VirtualHost>
+
+
+<VirtualHost *:80>
+    ServerAdmin admin@example.com
+    ServerName speed_mockup
+    ServerAlias www.speed.com
+    DocumentRoot /var/www/speed_mockup
+
+	<Directory "/var/www/speed_mockup">
+        	Options Indexes FollowSymLinks Includes ExecCGI
+        	AllowOverride All
+        	Order deny,allow
+   	</Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+sudo a2ensite speed_mockup.conf
+sudo a2dissite 000-default.conf
+sudo apache2ctl configtest
+sudo systemctl restart apache2
+
+cd speed_mockup
+
+sudo apt install npm
+npm install
+npm install express
+sudo npm install -g nodemon
+sudo npm install -g forever
+sudo npm install -g body-parser
+
+sudo a2enmod ssl
+sudo service apache2 restart

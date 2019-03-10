@@ -1,0 +1,217 @@
+      <div class="container main-container">
+        <div class="row main-top-content justify-content-sm-center justify-content-center">
+          <div class="col-md">
+            <div class="p-3 row plant-name">
+              {{ctrl.client.name}}
+              <!-- {{ctrl.client}} -->
+            </div>
+            <div class="p-3 row searchField">
+              <input type="text" class= "p-2" placeholder="Search..">
+              <a>
+                <div class="searchButton d-flex align-items-center justify-content-center">
+                  <i class="material-icons md-18">search</i>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md row rating pt-3 pr-4">
+            <div class="col p-0 d-flex flex-column align-items-center">
+              <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+                Environment score
+              </div>
+              <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+                <i class="fa fa-envira" style="font-size:11px;"></i>
+              </div>
+              <div class="p-1 rating-content d-flex align-items-center justify-content-center environment">
+                {{ctrl.client.environment_rating}}
+              </div>
+              <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+                Average: ? - ?-th
+              </div>
+            </div>
+            <div class="col p-0 d-flex flex-column align-items-center">
+              <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+                Logistics score
+              </div>
+              <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+                <i class="fa fa-share-alt-square" style="font-size:11px;"></i>
+              </div>
+              <div class="p-1 rating-content d-flex align-items-center justify-content-center logistics">
+                {{ctrl.client.logistics_rating}}
+              </div>
+              <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+                Average: ? - ?-th
+              </div>
+            </div>
+            <div class="col p-0 d-flex flex-column align-items-center">
+              <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+                Capacity score
+              </div>
+              <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+                <i class="fa fa-fast-forward" style="font-size:11px;"></i>
+              </div>
+              <div class="p-1 rating-content d-flex align-items-center justify-content-center capacity">
+                {{ctrl.client.capacity_rating}}
+              </div>
+              <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+                Average: ? - ?-th
+              </div>
+            </div>
+            <div class="col p-0 d-flex flex-column align-items-center">
+              <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+                Product score
+              </div>
+              <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+                <i class="fa fa-dropbox" style="font-size:11px;"></i>
+              </div>
+              <div class="p-1 rating-content d-flex align-items-center justify-content-center product">
+                {{ctrl.client.product_rating}}
+              </div>
+              <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+                Average: ? - ?-th
+              </div>
+            </div>
+            <div class="col p-0 d-flex flex-column align-items-center">
+              <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+                Quality score
+              </div>
+              <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+                <i class="fa fa-thumbs-up" style="font-size:11px;"></i>
+              </div>
+              <div class="p-1 rating-content d-flex align-items-center justify-content-center quality">
+                {{ctrl.client.quality_rating}}
+              </div>
+              <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+                Average: ? - ?-th
+              </div>
+            </div>
+            <div class="p-2 pt-2 d-flex overall-title align-items-center">
+              Overall risks level
+            </div>
+            <div class="col-12 p-2 d-flex overall">
+              <div class="p-1 overall-star d-flex align-items-center justify-content-center">
+                <i class="material-icons md-36">star</i>
+              </div>
+              <div class="p-1 overall-content d-flex align-items-center justify-content-center">
+                {{ctrl.client.overall_rating}}
+              </div>
+            </div>
+            <div class="pl-2 overall-comment d-flex align-items-center justify-content-center">
+              Average: ?
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid p-1">
+        <div class="container-fluid main-content m-0 p-3">
+          <div class="row p-2 pt-0 table-title pt-4">
+            <div class="col-8 client-table-title ">
+              Company name
+            </div>
+            <div class="col-4 row m-0 client-table-title align-items-center justify-content-center">
+              <div class="col-4 col-md-2 p-1 d-flex align-items-center justify-content-center">
+                <div class="p-1 rating-label d-flex align-items-center justify-content-center">
+                  <i class="fa fa-envira" style="font-size:11px;"></i>
+                </div>
+              </div>
+              <div class="col-4 col-md-2 d-flex align-items-center justify-content-center">
+                <div class="p-1 rating-label d-flex align-items-center justify-content-center">
+                  <i class="fa fa-share-alt-square" style="font-size:11px;"></i>
+                </div>
+              </div>
+              <div class="col-4 col-md-2 d-flex align-items-center justify-content-center">
+                <div class="p-1 rating-label d-flex align-items-center justify-content-center">
+                  <i class="fa fa-fast-forward" style="font-size:11px;"></i>
+                </div>
+              </div>
+              <div class="col-4 col-md-2 d-flex align-items-center justify-content-center">
+                <div class="p-1 rating-label d-flex align-items-center justify-content-center">
+                  <i class="fa fa-dropbox" style="font-size:11px;"></i>
+                </div>
+              </div>
+              <div class="col-4 col-md-2 d-flex align-items-center justify-content-center">
+                <div class="p-1 rating-label d-flex align-items-center justify-content-center">
+                  <i class="fa fa-thumbs-up" style="font-size:11px;"></i>
+                </div>
+              </div>
+              <div class="col-4 col-md-2 d-flex align-items-center justify-content-center">
+                <div class="p-2 mx-auto rating-label d-flex align-items-center justify-content-center">
+                  <i class="fa fa-star" style="font-size:11px;"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="suppliers-list">
+            <div class="mt-4 p-4 justify-content-center align-items-center d-flex" ng-hide="ctrl.list_loaded"><img src="img/loading_spinner.svg" alt="Kiwi standing on oval"></div>
+            <div class="row pl-2 pr-2 y-0 supplier-row" ng-repeat="supplier in ctrl.client.suppliers track by $index">
+              <div class="col-8 supplier-name m-0 d-flex align-items-center" ng-class="supplier.overall_rating<100 ? 'high-risk-supplier':''">
+                <div><i class="fa fa-flag flag p-1 d-none" style="color: red; font-size:14px;"></i><a ui-sref="supplier({supplier_code:supplier._id})">{{supplier.brand}}</a> </div>
+              </div>
+              <div class="col-4 row m-0 supplier-rating-container">
+                <div class="col-4 col-md-2 p-0 pb-1 pt-1 d-flex align-items-center justify-content-center">
+                  <div class="mx-auto supplier-rating supplier-rating-environment d-flex align-items-center justify-content-center environment_rating_{{$index}}">
+                    {{supplier.environment_rating}}
+                  </div>
+                </div>
+                <div class="col-4 col-md-2 p-0 pb-1 pt-1 d-flex align-items-center justify-content-center">
+                  <div class="mx-auto supplier-rating supplier-rating-logistics d-flex align-items-center justify-content-center logistics_rating_{{$index}}">
+                    {{supplier.logistics_rating}}
+                  </div>
+                </div>
+                <div class="col-4 col-md-2 p-0 pb-1 pt-1 d-flex align-items-center justify-content-center">
+                  <div class="mx-auto supplier-rating supplier-rating-capacity d-flex align-items-center justify-content-center capacity_rating_{{$index}}">
+                    {{supplier.capacity_rating}}
+                  </div>
+                </div>
+                <div class="col-4 col-md-2 p-0 pb-1 pt-1 d-flex align-items-center justify-content-center">
+                  <div class="mx-auto supplier-rating supplier-rating-product d-flex align-items-center justify-content-center product_rating_{{$index}}">
+                    {{supplier.product_rating}}
+                  </div>
+                </div>
+                <div class="col-4 col-md-2 p-0 pb-1 pt-1 d-flex align-items-center justify-content-center">
+                  <div class="mx-auto supplier-rating supplier-rating-quality d-flex align-items-center justify-content-center quality_rating_{{$index}}">
+                    {{supplier.quality_rating}}
+                  </div>
+                </div>
+                <div class="col-4 col-md-2 p-0 pb-1 pt-1 d-flex align-items-center justify-content-center">
+                  <div class="mx-auto supplier-rating supplier-rating-overall d-flex align-items-center justify-content-center">
+                    {{supplier.overall_rating}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+        <!--- !!CHARTS!! -->
+        <div class="container-fluid p-1">
+          <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script> -->
+          <div class="main-content mt-4 chart">
+            <canvas id="bar-chart"></canvas>
+          </div>
+          <script src="/src/bar-chart.js"></script>
+
+
+          <div class="main-content mt-4 chart">
+            <canvas id="line-chart"></canvas>
+          </div>
+          <script src="src/line-chart.js"></script>
+
+          <div class="main-content mt-4 chart">
+            <canvas id="risks-chart"></canvas>
+          </div>
+          <script src="src/risks-chart.js"></script>
+        </div>
+
+
+        <div class="container-fluid p-1 mt-4">
+          <div class="container p-1 main-content">
+            <div class="maps">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d35958.09444662754!2d37.71503698542819!3d55.717132341628925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa7bd5a2a333bbc27!2sRenault!5e0!3m2!1sru!2sru!4v1542916582292" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>

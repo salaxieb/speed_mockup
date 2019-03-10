@@ -1,0 +1,85 @@
+<div class="container main-container">
+
+  <div class="container-fluid p-1 pt-0 mt-4">
+  <div class="container-fluid main-content m-0 p-3 pt-0">
+    <div class="row p-2 pt-0 table-title pt-4">
+      <div class="col-8 client-table-title ">
+        Plant name
+      </div>
+      <div class="col-4 row m-0 client-table-title align-items-center justify-content-center">
+        <div class="col-4 col-md-2 p-1 d-flex align-items-center justify-content-center">
+          <div class="p-1 rating-label d-flex align-items-center justify-content-center">
+            <i class="fa fa-envira" style="font-size:11px;"></i>
+          </div>
+        </div>
+        <div class="col-4 col-md-2 d-flex align-items-center justify-content-center">
+          <div class="p-1 rating-label d-flex align-items-center justify-content-center">
+            <i class="fa fa-share-alt-square" style="font-size:11px;"></i>
+          </div>
+        </div>
+        <div class="col-4 col-md-2 d-flex align-items-center justify-content-center">
+          <div class="p-1 rating-label d-flex align-items-center justify-content-center">
+            <i class="fa fa-fast-forward" style="font-size:11px;"></i>
+          </div>
+        </div>
+        <div class="col-4 col-md-2 d-flex align-items-center justify-content-center">
+          <div class="p-1 rating-label d-flex align-items-center justify-content-center">
+            <i class="fa fa-dropbox" style="font-size:11px;"></i>
+          </div>
+        </div>
+        <div class="col-4 col-md-2 d-flex align-items-center justify-content-center">
+          <div class="p-1 rating-label d-flex align-items-center justify-content-center">
+            <i class="fa fa-thumbs-up" style="font-size:11px;"></i>
+          </div>
+        </div>
+        <div class="col-4 col-md-2 d-flex align-items-center justify-content-center">
+          <div class="p-2 mx-auto rating-label d-flex align-items-center justify-content-center">
+            <i class="fa fa-star" style="font-size:11px;"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="suppliers-list">
+      <div class="row pl-2 pr-2 y-0 supplier-row" ng-repeat="client in ctrl.clients track by $index">
+        <div class="col-8 m-0 d-flex align-items-center">
+          <div><a ui-sref="client({client_code:client._id})">{{client.name}}</a></div>
+        </div>
+          <div class="col-4 row m-0 supplier-rating-container">
+            <div class="col-4 col-md-2 p-0 pb-1 pt-1 d-flex align-items-center justify-content-center">
+              <div class="mx-auto supplier-rating supplier-rating-environment d-flex align-items-center justify-content-center environment_rating_{{$index}}">
+                {{client.environment_rating}}
+              </div>
+            </div>
+            <div class="col-4 col-md-2 p-0 pb-1 pt-1 d-flex align-items-center justify-content-center">
+              <div class="mx-auto supplier-rating supplier-rating-logistics d-flex align-items-center justify-content-center logistics_rating_{{$index}}">
+                {{client.logistics_rating}}
+              </div>
+            </div>
+            <div class="col-4 col-md-2 p-0 pb-1 pt-1 d-flex align-items-center justify-content-center">
+              <div class="mx-auto supplier-rating supplier-rating-capacity d-flex align-items-center justify-content-center capacity_rating_{{$index}}">
+                {{client.capacity_rating}}
+              </div>
+            </div>
+            <div class="col-4 col-md-2 p-0 pb-1 pt-1 d-flex align-items-center justify-content-center">
+              <div class="mx-auto supplier-rating supplier-rating-product d-flex align-items-center justify-content-center product_rating_{{$index}}">
+                {{client.product_rating}}
+              </div>
+            </div>
+            <div class="col-4 col-md-2 p-0 pb-1 pt-1 d-flex align-items-center justify-content-center">
+              <div class="mx-auto supplier-rating supplier-rating-quality d-flex align-items-center justify-content-center quality_rating_{{$index}}">
+                {{client.quality_rating}}
+              </div>
+            </div>
+            <div class="col-4 col-md-2 p-0 pb-1 pt-1 d-flex align-items-center justify-content-center">
+              <div class="mx-auto supplier-rating supplier-rating-overall d-flex align-items-center justify-content-center">
+                {{client.overall_rating}}
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- <div class="mt-4 p-4 justify-content-center align-items-center d-flex" ng-hide="ctrl.list_loaded"><img src="img/loading_spinner.svg" alt="Kiwi standing on oval"></div> -->
+
+
+</div>

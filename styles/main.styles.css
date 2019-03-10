@@ -1,0 +1,289 @@
+/* Rules for sizing the icon. */
+.material-icons.md-14 { font-size: 14px; }
+.material-icons.md-16 { font-size: 16px; }
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-20 { font-size: 20px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Header content start */
+
+ui-view .success {
+  border-width: 9px;
+  border-style: solid;
+  border-color: orange;
+}
+
+header{
+  background-image: linear-gradient(rgb(249,95,29), rgb(229,7,42));
+  /* font-size: 20px; */
+  overflow: visible;
+}
+
+.main-container {
+  max-width: 800px;
+  /*background-color: #efefef;*/
+  font-size: 0.8em;
+}
+
+.main-content {
+  background-color: #efefef;
+  border-radius: 3px;
+  /*background-color: #ddd;*/
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: rgb(200,200,200);
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(200,200,200, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.help-content {
+  color: white;
+  font-weight: 0.7em;
+}
+
+.help {
+  min-width: 80px;
+}
+
+/* Header content end */
+
+/*main content start */
+main {
+  min-height: 725px;
+}
+
+.plant-name {
+  font-size: 2.3em;
+  /*height: 210px;*/
+  font-weight: bold;
+}
+
+.searchField input {
+  height: 35px;
+  border-color: rgb(30,39,46);
+  font-size: 1em;
+  border-radius: 6px 0 0 6px;
+
+}
+
+.searchButton {
+  color: white;
+  font-size: 0.8em;
+  height: 35px;
+  width: 35px;
+  background-color: rgb(30,39,46);
+  border-radius: 0 6px 6px 0;
+}
+
+.rating {
+  max-width: 450px;
+}
+
+.rating-content {
+  width: 60px;
+  height: 60px;
+  font-size: 1.5em;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.rating-title {
+  width: 60px;
+  height: 30px;
+  font-size: 0.7em;
+  text-align: center;
+}
+
+.rating-comment {
+  font-size: 0.7em;
+  color: #666;
+  width: 60px;
+  text-align: center;
+}
+
+.down-10 {
+  position: relative;
+  top: 10px;
+}
+
+.rating-label {
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background-color: rgb(30,39,46);
+  color: white;
+}
+
+.overall-comment {
+  /* font-size: 0.6em; */
+  color: #666;
+}
+
+.foov {
+  background-color: #DDD;
+}
+
+.environment {
+  /*background-color: rgb(251,180,20);*/
+  background-color: rgb(100,100,100);
+}
+
+.logistics {
+  /*background-color: rgb(200,20,20);*/
+  background-color: rgb(100,100,100);
+}
+
+.capacity {
+  /*background-color: rgb(20,200,20);*/
+  background-color: rgb(100,100,100);
+}
+
+.product {
+  /*background-color: rgb(20,200,20);*/
+  background-color: rgb(100,100,100);
+}
+
+.quality {
+  /*background-color: rgb(20,200,20);*/
+  background-color: rgb(100,100,100);
+}
+
+.overall-star {
+  width: 60px;
+  height: 60px;
+  color: white;
+  background-color: rgb(249,49,29);
+  border-radius: 8px 0 0 8px;
+}
+
+.overall-content {
+  background-color: rgb(30,39,46);
+  font-size: 2em;
+  font-weight: bold;
+  width: 180px;
+  height: 60px;
+  color: white;
+  border-radius: 0 8px 8px 0;
+}
+
+.overall-title {
+  font-size: 1.8em;
+}
+
+/* main top content ends here */
+
+/* body styles goes here */
+
+.client-table-title {
+  font-weight: bold;
+}
+
+.supplier-rating {
+  width: 33px;
+  height: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8em;
+  border-radius: 3px;
+}
+
+.supplier-rating-environment {
+  background-color: rgb(100,100,100);
+}
+
+.supplier-rating-environment {
+  background-color: rgb(100,100,100);
+}
+
+.supplier-rating-logistics {
+  background-color: rgb(100,100,100);
+}
+
+.supplier-rating-capacity {
+  background-color: rgb(100,100,100);
+}
+
+.supplier-rating-product {
+  background-color: rgb(100,100,100);
+}
+
+.supplier-rating-quality {
+  background-color: rgb(100,100,100);
+}
+
+.supplier-rating-overall {
+  background-color: rgb(30,39,46);
+  color: rgb(251,180,18);
+}
+
+.suppliers-list {
+  /*overflow: hidden;*/
+}
+
+.supplier-row:nth-of-type(odd) {
+  background-color: #ddd;
+}
+
+.high-risk-supplier {
+  font-weight: bold;
+}
+
+.high-risk-supplier .flag {
+  margin-left: -22px;
+  display: inline-block !important;
+}
+
+.supplier-row div a {
+  color: black;
+}
+/* body styles ends here */
+
+/*chart styles goes here */
+.chart {
+  position: relative;
+  margin: auto;
+  height: 200px;
+}
+/*chart titles ends here */
+
+/* maps styles goes here */
+
+.maps {
+  height: 400px;
+}
+
+
+/*maps styles ends here */
+
+
+/*main content end */
+
+/* footer styles goes here */
+footer {
+  color: white;
+}
+
+ .page-footer {
+   background-color: rgb(30,39,46);
+ }
+
+ footer .material-icons {
+   color: rgb(251, 

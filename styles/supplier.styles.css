@@ -1,0 +1,195 @@
+
+/* supplier styles goes here */
+
+/*supplier top content */
+.navigation-button {
+  height: 40px;
+  background-color: rgb(30,39,46);
+  margin: 1px;
+  font-weight: bold;
+  font-size: 0.74em;
+}
+
+.navigation-button a {
+  color: white;
+}
+
+.navigation-button.active {
+  background-color: rgb(229,7,42);
+  height: 42px;
+}
+
+
+.edit-button {
+  background-color: rgb(30,39,46);
+  font-size: 2em;
+  font-weight: bold;
+  width: 240px;
+  height: 60px;
+  color: white;
+  border-radius: 8px;
+  position: relative;
+  top: -2px;
+}
+
+}
+
+.text-field {
+  background-color: #ddd;
+  border: 1px solid #aaa;
+}
+
+.dropdown-item {
+  font-size: 0.6em;
+}
+
+.supplier .rating-title {
+  top: 0;
+}
+
+.supplier .rating-label {
+  display: none !important;
+}
+
+.title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.value {
+  font-size: 0.9em;
+  /* font-weight: normal; */
+}
+
+.content {
+  background-color: #ddd;
+  border: 1px solid #aaa;
+}
+
+.comment {
+  min-height: 100px;
+}
+
+.domain-title {
+  font-size: 2.2em;
+  color: rgb(249,95,29);
+}
+
+.bad-value {
+  color: red;
+  font-weight:bold;
+}
+
+.good-value {
+  color: #3a3;
+  font-weight:bold;
+}
+
+.value-comment {
+  font-size: 0.8em;
+  color: #888;
+  margin-top: -10px;
+}
+
+.capacity-title-row {
+  font-size: 0.6em;
+  font-weight: bold;
+}
+.capacity-title-row div {
+}
+
+.capacity-row {
+  font-size: 0.6em;
+}
+
+.capacity-row div {
+  background-color: #ddd;
+  border: 1px solid #aaa;
+}
+
+div.BLU {
+  background-color: #47e;
+}
+
+div.ORG {
+  background-color: #e82;
+}
+
+div.GRN {
+  background-color: #2c2;
+}
+
+div.RED {
+  background-color: #e22;
+}
+
+
+.cf {
+  width: 30px;
+}
+.cf-label {
+  width: 65px;
+}
+.clients {
+  width: 65px;
+}
+.projects {
+  width: 65px;
+}
+.parts-nb {
+  width: 20px;
+}
+.cr-status, .Y1-status, .Y2-status {
+  width: 25px;
+}
+.w-working {
+  width: 25px;
+}
+.new-shift {
+  width: 25px;
+}
+.cap-audit-status {
+  width: 50px;
+}
+.manual-process, .shared-line, .mixes-change-sensability, .in-sp, .in-sm {
+  width: 36px;
+}
+.cf-rating {
+  width: 27px;
+}
+.link {
+  width: 44px;
+}
+
+
+/* product */
+
+.check-square {
+  height: 30px;
+  width: 30px;
+}
+
+.commodity {
+  width: 90px;
+}
+.csr-parts, .visible-part, .new-process, .new-technology, .new-commodity, .nb-operations {
+  width: 70px;
+}
+ /* hiding check simbol*/
+.true .fa-check {
+  display: block !important;
+}
+
+.false .fa-times {
+  display: block !important;
+}
+
+.capacity_chart {
+  position: relative;
+  margin: auto;
+  height: 400px;
+}
+
+
+
+/* supplier styles ends here */

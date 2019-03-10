@@ -1,0 +1,33 @@
+.login-background {
+  min-height: 700px;
+}
+
+.login-container {
+  background-color: white;
+  width: 400px;
+  height: 300px;
+}
+
+.login-header {
+  font-weight: bold;
+  font-size: 0.8em;
+  /*background-color: rgb(200,200,200);*/
+  height: 55px;
+}
+
+.inputs-container {
+  width: 300px;
+  font-weight: bold;
+}
+
+.login-row {
+  height: 38px;
+  text-decoration: underline;
+}
+
+.login-button {
+  width: 100%;
+  background-color: red;
+  font-weight: bold;
+  font-size: 1.4em;
+}

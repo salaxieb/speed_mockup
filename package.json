@@ -1,0 +1,28 @@
+{
+  "name": "speed-mockup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.22",
+    "body-parser": "^1.18.3",
+    "browser-sync": "^2.26.3",
+    "express": "^4.16.4",
+    "forever": "^0.15.3",
+    "mongodb": "^3.1.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salaxieb/speed_mockup.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/salaxieb/speed_mockup/issues"
+  },
+  "homepage": "https://github.com/salaxieb/speed_mockup#readme"
+}

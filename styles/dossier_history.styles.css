@@ -1,0 +1,17 @@
+
+.dossier-contact, .dossier-result, .dossier-date{
+  font-weight: bold;
+}
+
+.dossier-contact {
+  min-width: 160px;
+}
+
+.dossier-name {
+  min-width: 170px;
+}
+
+.dossier-date {
+  color: #999;
+  font-size: 0.8em;
+}

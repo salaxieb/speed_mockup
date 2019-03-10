@@ -1,0 +1,492 @@
+
+<div class="container main-container" ng-class="{{ctrl.success}}?'success':' '">
+  {{ctrl.success}}
+  <div class="row main-top-content mt-4">
+    <div class="col-md-6 justify-content-left">
+      <!-- <div class="mt-3 small-font">
+        <a href="main.html"> <i class="fa fa-arrow-left"></i> Back </a>
+      </div>
+ -->
+      <form name="supplierForm">
+        <div class="container p-1">
+          <input class="p-1 mt-1 plant-name col-12" ng-model="ctrl.supplier.brand" placeholder="Supplier brand">
+          <input class="p-1 mt-1 col-12"  ng-model="ctrl.supplier.address" placeholder="Address ex: 115280, Россия, г. Москва, ул. Улица, д. 00, стр. 00">
+
+          <div class="p-1 mt-1 container row">
+            <div class="col p-1 m-2"> Longitude: </div>
+            <input class="col p-1 m-0" ng-model="ctrl.supplier.longitude" placeholder="27.8419717">
+            <div class="col p-1 m-2">Latitude: </div>
+            <input class="col p-1 m-0" ng-model="ctrl.supplier.latitude" placeholder="86.6276818">
+          </div>
+          <button type="button" class="mt-1 p-1 btn btn-primary btn-sm" ng-click="ctrl.save_all()"> Save </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- header end -->
+
+  <div class="container-fluid p-1">
+    <div class="container-fluid p-3 m-0 mt-3 inputs-row main-content">
+      <form name="supplierCommentForm">
+        <div class="row">
+            <div class="col-md-6 pl-1 pr-1">
+              <div class="p-1 d-flex title"> Comment: </div>
+              <textarea class="p-1 container content comment" type="textarea" placeholder="Bad supplier!"></textarea >
+            </div>
+        <div class="col-md-6 pl-1 pr-1">
+          <div class="p-1 d-flex title"> Hidden from supplier comment: </div>
+          <textarea class="p-1 container content comment" type="textarea" ng-model="ctrl.supplier.hidden_comment" placeholder="Put your comment here"></textarea >
+        </div>
+        <button type="button" class="mt-1 m-1 p-1 btn btn-primary btn-sm" ng-click="ctrl.save_all()"> Save </button>
+    </form>
+    </div>
+  </div>
+
+
+    <div class="container-fluid m-0 mt-3 inputs-row main-content">
+      <div class="row p-1">
+        <div class="d-flex px-1 m-0 mt-1 container">
+          <div class="p-1 d-flex title col-5"> Code: </div>
+          <div class="p-1 d-flex title col-3"> Client: </div>
+          <div class="p-1 d-flex title col-3"> Projects: </div>
+        </div>
+
+        <div class="d-flex px-1 m-0 mt-1 container content">
+          <div class="p-1 d-flex value col-5"> SOMESUPPLIERMOSCOW-00005644500 </div>
+          <div class="p-1 d-flex value col-3"> RENAULTRUSSIA-900107 </div>
+          <div class="p-1 d-flex value col-3"> HHA, H79, H79N </div>
+          <button type="button" class="btn btn btn-outline-danger btn-sm col-1"> Del </button>
+        </div>
+        <div class="d-flex px-1 m-0 mt-1 container content">
+          <div class="p-1 d-flex value col-5"> SOMESUPPLIERMOSCOW-00005644500 </div>
+          <div class="p-1 d-flex value col-3"> AvtoVAZ-900107 </div>
+          <div class="p-1 d-flex value col-3"> X52, XJF, H79N </div>
+          <button type="button" class="btn btn btn-outline-danger btn-sm col-1"> Del </button>
+        </div>
+
+        <div class="d-flex px-1 m-0 mt-1 container content">
+          <input class="p-1 d-flex value col-5">
+          <select class="p-1 d-flex value col-3">
+            <option selected></option>
+            <option>RENAULTRUSSIA-900107</option>
+            <option>AVTOVAZRUSSIA-900107</option>
+          </select>
+          <input class="p-1 d-flex value col-3">
+          <button type="button" class="btn btn-primary btn-sm col-1" ng-click="ctrl.save_all()"> Save </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-fluid m-0 mt-3 inputs-row main-content">
+      <div class="row p-1">
+        <div class="d-flex px-1 m-0 mt-1 container">
+          <div class="p-1 d-flex title col-5"> Commodity: </div>
+          <div class="p-1 d-flex title col-7"> Buyer: </div>
+        </div>
+
+        <div class="d-flex px-1 m-0 mt-1 container content">
+          <div class="p-1 d-flex value col-5"> Stamping </div>
+          <div class="p-1 d-flex value col-6"> Some buyer contact smbuyer@renault.com +7 963 979 0000 </div>
+          <button type="button" class="btn btn btn-outline-danger btn-sm col-1"> Del </button>
+        </div>
+
+        <div class="d-flex px-1 m-0 mt-1 container content">
+          <div class="p-1 d-flex value col-5"> Second commodity </div>
+          <div class="p-1 d-flex value col-6"> Some buyer contact smbuyer@renault.com +7 963 979 0000 </div>
+          <button type="button" class="btn btn btn-outline-danger btn-sm col-1"> Del </button>
+        </div>
+        <div class="d-flex px-1 m-0 mt-1 container content">
+          <input class="p-1 d-flex value col-5">
+          <select class="p-1 d-flex value col-6">
+            <option selected></option>
+            <option>Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</option>
+            <option>Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</option>
+          </select>
+          <button type="button" class="btn btn-primary btn-sm col-1" ng-click="ctrl.save_all()"> Save </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid p-3 m-0 mt-3 inputs-row main-content">
+      <div class="row">
+        <div class="col-md row px-1">
+          <div class="pl-3 col-12 title"> Client contacts: </div>
+          <div class="pl-3 col-3 value text-right"><b>TGP:</b></div>
+          <div class="col-7 value"> Name&nbsp;Surname name.surname@renault.com</div>
+          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
+
+          <div class="pl-3 col-3 value text-right"><b>SRMT Pilot:</b></div>
+          <div class="col-7 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
+
+          <div class="pl-3 col-3 value text-right"><b>TGP:</b></div>
+          <div class="col-7 value"> Name&nbsp;Surname <a href="mailto:name.surname@renault.com?Subject=Alpha%20automotive%20lightning"> name.surname@renault.com </a> +7&nbsp;963&nbsp;979&nbsp;0000</div>
+          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
+
+          <div class="pl-3 col-3 value text-right"><b>SSD:</b></div>
+          <div class="col-7 value "> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
+
+          <div class="pl-3 col-3 value text-right"><b>TGP:</b></div>
+          <div class="col-7 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
+
+          <div class="pl-3 col-3 value text-right"><b>Buyer:</b></div>
+          <div class="col-7 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
+
+          <div class="pl-3 col-3 value text-right"><b>PPM:</b></div>
+          <div class="col-7 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
+
+          <div class="pl-3 col-3 value text-right"><b>SRMT Pilot:</b></div>
+          <div class="col-7 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
+
+          <div class="pl-3 col-3 value text-right"><input class="col-12 p-0 py-1 value text-right"></div>
+          <div class="col-7 value"><input class="col-12 p-0 py-1 value"></div>
+          <button type="button" class="btn btn-primary value btn-sm col-2 p-0 py-1" ng-click="ctrl.save_all()"> Save </button>
+        </div>
+        <div class="col-md pl-1 pr-1">
+          <div class="pl-3 col-12 title">Supplier contacts: </div>
+          <div class="p-1">
+
+            <div class="m-1 container">
+              <div class="row">
+                <div class="pl-3 col-3 value text-right">
+                  <b>KAM:</b>
+                </div>
+                <div class="col-7 value">
+                  Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000
+                </div>
+                <div class="col-2 p-0 py-1">
+                  <button type="button" class="btn btn btn-outline-danger btn-sm col-12">Del</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="m-1 container">
+              <div class="row">
+                <div class="pl-3 col-3 value text-right">
+                  <b>Some Plant general manager:</b>
+                </div>
+                <div class="col-7 value">
+                  Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000
+                </div>
+                <div class="col-2 p-0 py-1">
+                  <button type="button" class="btn btn btn-outline-danger btn-sm col-12">Del</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="m-1 container">
+              <div class="row">
+                <div class="pl-3 col-3 value text-right">
+                  <b>KAM:</b>
+                </div>
+                <div class="col-7 value">
+                  Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000
+                </div>
+                <div class="col-2 p-0 py-1">
+                  <button type="button" class="btn btn btn-outline-danger btn-sm col-12">Del</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="m-1 container">
+              <div class="row">
+                <div class="pl-3 col-3 value text-right">
+                  <b>Logistics:</b>
+                </div>
+                <div class="col-7 value">
+                  Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000
+                </div>
+                <div class="col-2 p-0 py-1">
+                  <button type="button" class="btn btn btn-outline-danger btn-sm col-12">Del</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="m-1 container">
+              <div class="row">
+                <div class="pl-3 col-3 value text-right">
+                  <input class="col-12 p-0 py-1 value text-right">
+                </div>
+                <div class="col-7 value">
+                  <input class="col-12 p-0 py-1 value">
+                </div>
+                <div class="col-2 p-0">
+                  <button type="button" class="btn btn-primary value btn-sm col-12" ng-click="ctrl.save_all()"> Save </button>
+                  <div class="alert alert-success mt-2" ng-if='ctrl.success'>
+                    <strong>Success!</strong> Data successfully saved!
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="pl-3 col-3 value text-right"><b>Some Plant general manager:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+            <div class="pl-3 col-3 value text-right"><b>Logistics:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+            <div class="pl-3 col-3 value text-right"><b>Commercial:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid p-3 m-0 mt-3 inputs-row main-content">
+      <div class="flex-row p-2 row">
+        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Environment risks score </div>
+        <div class="p-1 rating-content d-flex align-items-center justify-content-center environment">8</div>
+        <div class="p-1 d-flex align-items-center justify-content-center">Average: 4.3 - 30-th</div>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Start of deliveries: </b></div>
+        <input class="p-1 value content">
+
+        <div class="p-1 value"><b>Alliance supplier for:</b></div>
+        <div class="p-1 value content bad-value">3Y 4M</div>
+      </div>
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Low cost country?:</b></div>
+        <div class="p-1 d-flex justify-content-center align-items-center value content bad-value check-square check"><i class="fa fa-check fa-lg"></i></div>
+      </div>
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Imposed suppliers number:</b></div>
+        <input class="p-1 value content">
+      </div>
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Maximum client lead-time:</b></div>
+        <div class="p-1 value content">4 weeks</div>
+      </div>
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Supplies to another country:</b></div>
+        <div class="p-1 d-flex justify-content-center align-items-center value content bad-value check-square"><i class="fa fa-check fa-lg"></i></div>
+      </div>
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Overseas supplies:</b></div>
+        <div class="p-1 d-flex justify-content-center align-items-center value content good-value check-square"><i class="fa fa-check fa-lg"></i></div>
+      </div>
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Action plan size:</b></div>
+        <div class="p-1 value content bad-value">4</div>
+      </div>
+    </div>
+    <div class="col-12 p-0 d-flex justify-content-end">
+        <button type="button" class="btn btn-primary value btn-sm col-1" ng-click="ctrl.save_all()"> Save </button>
+    </div>
+
+
+
+
+
+    <div class="container-fluid p-3 m-0 mt-3 inputs-row main-content">
+      <div class="flex-row p-2 row">
+        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Logistics risks score </div>
+        <div class="p-1 rating-content d-flex align-items-center justify-content-center logistics">2</div>
+        <div class="p-1 d-flex align-items-center justify-content-center">Average: 4.3 - 30-th</div>
+      </div>
+      <div class="row">
+        <div class="p-1 col-6 col-md-3">
+          <div class="p-1 title">Clients: </div>
+          <div class="p-1 value content">
+            <div class="p-1"> RENAULTRUSSIA-900107 </div>
+            <div class="p-1"> AVTOVAZRUSSIA-900107 </div>
+          </div>
+        </div>
+        <div class="p-1 col-4 col-md-2">
+          <div class="p-1 title">Lead-time: </div>
+          <div class="p-1 value content">
+            <div class="p-1"> 2 D </div>
+            <div class="p-1"> 2 W </div>
+          </div>
+        </div>
+        <div class="p-1 col-8 col-md-4">
+          <div class="p-1 title">Flow weight: </div>
+          <div class="p-1 value content">
+            <div class="p-1"><b> 234 </b> actives 4% 55-th from 124 </div>
+            <div class="p-1"><b>1234</b> actives 13% 1-st from 334 </div>
+          </div>
+        </div>
+        <div class="p-1 col-6 col-md-3">
+          <div class="p-1 title">Weight in delays: </div>
+          <div class="p-1 value content">
+            <div class="p-1"><b> 22 </b> delays - 3% 2-nd </div>
+            <div class="p-1"><b> 44 </b> delays - 12% 34-th </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>MMOG/Le self-assessment: </b></div>
+        <input class="p-1 value content">
+        <input class="p-1 value" type="file"><a href="#"> MMOG-LE SA AAT 05.05.2018.xls</a>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Clients comment: </b></div>
+        <input class="p-1 value content">
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Last SA date: </b></div>
+        <input class="p-1 value content" placeholder="DD.MM.YYYY">
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>ASSCE audit result: </b></div>
+        <input class="p-1 value content">
+        <input class="p-1 value" type="file"><a href="#"> ASSCE audit report 24.05.2016.pdf</a>
+      </div>
+      <div class="flex-row pl-3 value-comment row">
+        Average ASSCE audit result: 3.95
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>ASSCE audit date: </b></div>
+        <input class="p-1 value content" placeholder="DD.MM.YYYY">
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Action plan status: </b></div>
+        <input class="p-1 value content" placeholder="Closed/In process">
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>APLF audit result: </b></div>
+        <input class="p-1 value content" placeholde="99%">
+        <input class="p-1 value" type="file"><a href="#"> APLF audit report 10.07.2018.pdf</a> </input  >
+      </div>
+      <div class="flex-row pl-3 value-comment row">
+        Average APLF audit result: 98%
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>APLF audit date: </b></div>
+        <input class="p-1 value content" placeholder="DD.MM.YYYY">
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Action plan status: </b></div>
+        <input class="p-1 value content" placeholder="Closed/In process">
+      </div>
+
+      <div class="flex-column p-2 row">
+        <div class="flex-row p-1 title"> TSO: </div>
+        <div class="flex-row p-0 m-0 row">
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"><b>1Y</b></div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 97 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>6M</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 97 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W26</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W27</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W28</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W29</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 100   </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-row pl-2 pb-0 mb-0 row">
+        <div class="p-1 title"> DR: </div>
+      </div>
+      <div class="flex-row pl-2 mt-0 pt-0 row">
+        <div class="p-0 m-1 flex-column">
+          <div class="p-1 d-flex value align-items-center justify-content-center"><b>1Y</b></div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> 97 </div>
+        </div>
+        <div class="p-0 m-1 flex-column">
+          <div class="p-1 d-flex value align-items-center justify-content-center"> <b>6M</b> </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> 97 </div>
+        </div>
+        <div class="p-0 m-1 flex-column">
+          <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W26</b> </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
+        </div>
+        <div class="p-0 m-1 flex-column">
+          <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W27</b> </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
+        </div>
+        <div class="p-0 m-1 flex-column">
+          <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W28</b> </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
+        </div>
+        <div class="p-0 m-1 flex-column">
+          <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W29</b> </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> 100   </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 p-0 d-flex justify-content-end">
+        <button type="button" class="btn btn-primary value btn-sm col-1" nng-click="ctrl.save_all()"> Save </button>
+    </div>
+
+
+
+
+
+
+
+    <div class="container-fluid p-3 m-0 mt-3 inputs-row main-content">
+      <div class="flex-row p-2 row">
+        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Product risks score </div>
+        <div class="p-1 rating-content d-flex align-items-center justify-content-center product">8</div>
+        <div class="p-1 d-flex align-items-center justify-content-center">Average: 4.3 - 30-th</div>
+      </div>
+
+      <div class="flex-row pl-2 pr-2 pb-0 mb-0 row product-title-row">
+        <div class="m-1 pl-1 d-flex align-items-end value commodity"><b>Commodity:</b></div>
+        <div class="m-1 pl-3 d-flex align-items-end value csr-parts"><b>CSR parts:</b></div>
+        <div class="m-1 pl-3 d-flex align-items-end value visible-part"><b>Visible part:</b></div>
+        <div class="m-1 pl-3 d-flex align-items-end value new-process"><b>New process:</b></div>
+        <div class="m-1 pl-3 d-flex align-items-end value new-technology"><b>New technology:</b></div>
+        <div class="m-1 pl-3 d-flex align-items-end value new-commodity"><b>New commodity:</b></div>
+        <div class="m-1 pl-3 d-flex align-items-end value nb-operations"><b>Nb of operations:</b></div>
+      </div>
+
+      <div class="flex-row pl-2 pr-2 pb-0 pt-0 row product-row">
+        <div class="m-1 d-flex justify-content-center align-items-center commodity content">Stamping</div>
+        <div class="m-1 d-flex justify-content-center align-items-center csr-parts"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square check"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center visible-part"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-process"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-technology"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-commodity"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center nb-operations"><div class="p-2 d-flex justify-content-center align-items-center value content check-square">24</div></div>
+      </div>
+
+      <div class="flex-row pl-2 pr-2 pb-0 pt-0 row product-row">
+        <div class="m-1 d-flex justify-content-center align-items-center commodity content foov">Wires</div>
+        <div class="m-1 d-flex justify-content-center align-items-center csr-parts"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center visible-part"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-process"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-technology"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-commodity"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center nb-operations"><div class="p-2 d-flex justify-content-center align-items-center value content check-square">24</div></div>
+      </div>
+
+      <div class="flex-row pl-2 pr-2 pb-0 pt-0 row product-row">
+        <div class="m-1 d-flex justify-content-center align-items-center commodity content foov">Wires</div>
+        <div class="m-1 d-flex justify-content-center align-items-center csr-parts"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center visible-part"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-process"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-technology"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-commodity"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center nb-operations"><div class="p-2 d-flex justify-content-center align-items-center value content check-square">24</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 p-0 d-flex justify-content-

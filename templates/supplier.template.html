@@ -1,0 +1,560 @@
+
+<ui-view></ui-view>
+<div class="container main-container" ng-hide="$state.current.name != 'supplier'">
+  <div class="row main-top-content">
+    <div class="col-md justify-content-left">
+      <!-- <div class="mt-3 small-font">
+        <a ui-sref="clients"> <i class="fa fa-arrow-left"></i> Back </a>
+      </div> -->
+
+      <div class="d-flex mb-3 mt-4">
+        <div class="col navigation-button d-flex align-items-center justify-content-center active">
+          <a ui-sref="clients">
+            Score card
+          </a>
+        </div>
+        <div class="col navigation-button d-flex align-items-center justify-content-center">
+          <a ui-sref="clients">
+            Dossier history
+          </a>
+        </div>
+        <div class="col navigation-button d-flex align-items-center justify-content-center">
+          <a ui-sref="clients">
+            Action plan
+          </a>
+        </div>
+        <div class="col navigation-button d-flex align-items-center justify-content-center">
+          <a ui-sref="clients">
+            Production follow-up
+          </a>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="p-1 row plant-name">
+          {{ctrl.supplier.brand}}
+        </div>
+        <div class="p-1 row">
+          <div class="p-0 m-0 d-flex">
+          {{ctrl.supplier.address}}
+          </div>
+        </div>
+        <div class="p-1 container row">
+          <div class="col p-0 m-0">
+            Longitude: {{ctrl.supplier.longitude}}
+          </div>
+          <div class="col p-0 m-0">
+            Latitude: {{ctrl.supplier.latitude}}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 p-2 mt-4 d-flex">
+        <button ui-sref="supplier.update"class="p-1 edit-button d-flex align-items-center justify-content-center">
+          Edit data
+        </button>
+      </div>
+
+    </div>
+
+    <div class="col-md row rating pt-3 pr-4">
+      <div class="col p-0 d-flex flex-column align-items-center">
+        <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+          Environment score
+        </div>
+        <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+          <i class="fa fa-envira" style="font-size:11px;"></i>
+        </div>
+        <div class="p-1 rating-content d-flex align-items-center justify-content-center environment">
+          {{ctrl.supplier.environment_rating}}
+        </div>
+        <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+          Average: ? - ?-th
+        </div>
+      </div>
+      <div class="col p-0 d-flex flex-column align-items-center">
+        <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+          Logistics score
+        </div>
+        <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+          <i class="fa fa-share-alt-square" style="font-size:11px;"></i>
+        </div>
+        <div class="p-1 rating-content d-flex align-items-center justify-content-center logistics">
+          {{ctrl.supplier.logistics_rating}}
+        </div>
+        <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+          Average: ? - ?-th
+        </div>
+      </div>
+      <div class="col p-0 d-flex flex-column align-items-center">
+        <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+          Capacity score
+        </div>
+        <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+          <i class="fa fa-fast-forward" style="font-size:11px;"></i>
+        </div>
+        <div class="p-1 rating-content d-flex align-items-center justify-content-center capacity">
+          {{ctrl.supplier.capacity_rating}}
+        </div>
+        <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+          Average: ? - ?-th
+        </div>
+      </div>
+      <div class="col p-0 d-flex flex-column align-items-center">
+        <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+          Product score
+        </div>
+        <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+          <i class="fa fa-dropbox" style="font-size:11px;"></i>
+        </div>
+        <div class="p-1 rating-content d-flex align-items-center justify-content-center product">
+          {{ctrl.supplier.product_rating}}
+        </div>
+        <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+          Average: ? - ?-th
+        </div>
+      </div>
+      <div class="col p-0 d-flex flex-column align-items-center">
+        <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+          Quality score
+        </div>
+        <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+          <i class="fa fa-thumbs-up" style="font-size:11px;"></i>
+        </div>
+        <div class="p-1 rating-content d-flex align-items-center justify-content-center quality">
+          {{ctrl.supplier.quality_rating}}
+        </div>
+        <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+          Average: ? - ?-th
+        </div>
+      </div>
+      <div class="p-2 pt-2 d-flex overall-title align-items-center">
+        Overall risks level
+      </div>
+      <div class="col-12 p-2 d-flex overall">
+        <div class="p-1 overall-star d-flex align-items-center justify-content-center">
+          <i class="material-icons md-36">star</i>
+        </div>
+        <div class="p-1 overall-content d-flex align-items-center justify-content-center">
+          {{ctrl.supplier.overall_rating}}
+        </div>
+      </div>
+      <div class="p-1 overall-comment d-flex align-items-center justify-content-center">
+        Average: ? - ?-th
+      </div>
+    </div>
+  </div>
+
+  <!-- header end -->
+
+  <div class="container-fluid p-1">
+    <div class="container-fluid p-3 m-0 mt-3 main-content">
+      <div class="row">
+        <div class="col-md-6 pl-1 pr-1">
+          <div class="p-1 d-flex title"> Comment: </div>
+          <div class="p-1 container content comment">
+            <div class="p-1 d-flex value"> {{ctrl.supplier.comment}} </div>
+        </div>
+        </div>
+        <div class="col-md-6 pl-1 pr-1">
+          <div class="p-1 d-flex title"> Hidden from supplier comment: </div>
+          <div class="p-1 container content comment">
+            <div class="p-1 d-flex value"> {{ctrl.supplier.hidden_comment}} </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid p-3 m-0 mt-3 main-content">
+      <div class="row">
+        <div class="d-inline-flex flex-column pl-1 pr-1">
+          <div class="p-1 d-flex title"> Code: </div>
+          <div class="p-1 conteiner content" ng-repeat="code in ctrl.clients">
+            <div class="p-1 d-flex value"> {{ctrl.supplier.ipprfl_codes[0]}} </div>
+        </div>
+        </div>
+        <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
+          <div class="p-1 d-flex title"> Client: </div>
+          <div class="p-1 conteiner content" ng_repeat="client in ctrl.clients">
+            <div class="p-1 d-flex value"> {{client.code}} </div>
+          </div>
+        </div>
+        <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
+          <div class="p-1 d-flex title"> Projects: </div>
+          <div class="p-1 conteiner content" ng_repeat="client in ctrl.clients">
+            <div class="p-1 d-flex value"> UNK </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid p-3 m-0 mt-3 main-content">
+      <div class="row">
+        <div class="d-inline-flex flex-column pl-1 pr-1">
+          <div class="p-1 d-flex title"> Commodity: </div>
+          <div class="p-1 conteiner content" ng-repeat="commodity in ctrl.supplier.commodities_buyers">
+            <div class="p-1 d-flex value"> {{commodity.commodity}} </div>
+          </div>
+        </div>
+        <div class="d-inline-flex flex-column pl-1 pr-1">
+          <div class="p-1 d-flex title"> Buyer: </div>
+          <div class="p-1 conteiner content" ng-repeat="buyer in ctrl.supplier.commodities_buyers">
+            <div class="p-1 d-flex value"> {{buyer.buyer.name}} {{buyer.buyer.email}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid p-3 m-0 mt-3 main-content">
+      <div class="row">
+        <div class="col-md row pl-1 pr-1">
+          <div class="pl-3 col-12 title" > Client contacts: </div>
+          <div class="row" ng-repeat="contact in ctrl.supplier.supplier_contacts">
+            <div class="pl-3 col-3 value text-right"><b>{{contact.position}}:</b></div> <div class="col-9 value"> {{contact.name}} <a href="mailto:{{contact.email}}?Subject={{ctrl.supplier.brand}}">{{contact.email}}</a></div>
+          </div>
+        </div>
+        <div class="col-md pl-1 pr-1">
+          <div class="pl-3 col-12 title">Supplier contacts: </div>
+          <div class="p-1">
+            <div class="row" ng-repeat="contact in ctrl.supplier.supplier_client_contacts">
+              <div class="pl-3 col-3 value text-right"><b>{{contact.position}}:</b></div> <div class="col-9 value"> {{contact.name}} <a href="mailto:{{contact.email}}?Subject={{ctrl.supplier.brand}}">{{contact.email}}</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid p-3 m-0 mt-3 main-content">
+      <div class="flex-row p-2 row">
+        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Environment risks score </div>
+        <div class="p-1 rating-content d-flex align-items-center justify-content-center environment">
+        {{ctrl.supplier.environment_rating}}</div>
+        <div class="p-1 d-flex align-items-center justify-content-center">Average: ? - ?-th</div>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Start of deliveries: </b></div>
+        <div class="p-1 value content">{{ctrl.supplier.start_of_deliveries}}</div>
+
+        <div class="p-1 value"><b>Alliance supplier for:</b></div>
+        <div class="p-1 value content bad-value">{{ctrl.supplier.supplier_for}}</div>
+      </div>
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Low cost country?:</b></div>
+        <div class="p-1 value content check-square d-flex justify-content-center align-items-center" ng-class="{{ctrl.supplier.overall.low_cost_country}} ? 'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
+      </div>
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Imposed suppliers number:</b></div>
+        <div class="p-1 value content"><span>{{ctrl.supplier.overall.imposed_suppliers_number}}</span> {{ctrl.supplier.imposed_supplier_plural}}</div>
+      </div>
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Maximum client lead-time:</b></div>
+        <div class="p-1 value content">{{ctrl.supplier.maximum_lead_time}}</div>
+      </div>
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Supplies to another country:</b></div>
+        <div class="p-1 value content check-square d-flex justify-content-center align-items-center" ng-class="{{ctrl.supplier.overall.supplies_to_another_country}} ? 'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
+      </div>
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Overseas supplies:</b></div>
+        <div class="p-1 value content check-square d-flex justify-content-center align-items-center" ng-class="{{ctrl.supplier.overall.overseas_supplies}} ? 'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
+      </div>
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Action plan size:</b></div>
+        <div class="p-1 value content" ng-class="ctrl.supplier.action_plan_size>0?'bad-value':'good-value'">{{ctrl.supplier.action_plan_size}}</div>
+      </div>
+    </div>
+
+    <div class="container-fluid p-3 m-0 mt-3 main-content">
+      <div class="flex-row p-2 row">
+        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Logistics risks score </div>
+        <div class="p-1 rating-content d-flex align-items-center justify-content-center logistics">{{ctrl.supplier.logistics_rating}}</div>
+        <div class="p-1 d-flex align-items-center justify-content-center">Average: ? - ?-th</div>
+      </div>
+
+
+      <div class="row">
+        <div class="p-1 col-6 col-md-3">
+          <div class="p-1 title">Clients: </div>
+          <div class="p-1 value content" ng-repeat="client in ctrl.clients">
+            <div class="p-1"> {{client.code}} </div>
+          </div>
+        </div>
+        <div class="p-1 col-4 col-md-2">
+          <div class="p-1 title">Lead-time: </div>
+          <div class="p-1 value content" ng-repeat="client in ctrl.clients">
+            <div class="p-1"> {{client.lead_time}} ?D </div>
+          </div>
+        </div>
+        <div class="p-1 col-8 col-md-4">
+          <div class="p-1 title">Flow weight: </div>
+          <div class="p-1 value content" ng-repeat="client in ctrl.clients">
+            <div class="p-1"><b> {{client.this_supplier_actives}} </b> actives {{client.weight_in_actives}}% ?-th from {{client.suppliers_count}} </div>
+          </div>
+        </div>
+        <div class="p-1 col-6 col-md-3">
+          <div class="p-1 title">Weight in delays: </div>
+          <div class="p-1 value content" ng-repeat="client in ctrl.clients">
+            <div class="p-1"><b> {{client.this_supplier_delays}} </b> delays - {{client.weight_in_delays}}% ?-th </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>MMOG/Le self-assessment: </b></div>
+        <div class="p-1 value content"> 
+          {{ctrl.supplier.logistics.mmog_le_sa_result.letter}}{{ctrl.supplier.logistics.mmog_le_sa_result.mark}}%
+        </div>
+        <div class="p-1 value "><a href="#"> MMOG-LE SA AAT 05.05.2018.xls</a> </div>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Clients comment: </b></div>
+        <div class="p-1 value content"> {{ctrl.supplier.logistics.srm_pilot_comment}}</div>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Last SA date: </b></div>
+        <div class="p-1 value content"> {{ctrl.supplier.parsed_mmog_le_sa_date}} </div>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>ASSCE audit result: </b></div>
+        <div class="p-1 value content"> {{ctrl.supplier.logistics.assce_audit_result}} </div>
+        <div class="p-1 value"><a href="#"> ASSCE audit report 24.05.2016.pdf</a> </div>
+      </div>
+      <div class="flex-row pl-3 value-comment row">
+        Average ASSCE audit result: ?
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>ASSCE audit date: </b></div>
+        <div class="p-1 value content"> {{ctrl.supplier.parsed_assce_audit_date}} </div>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Action plan status: </b></div>
+        <div class="p-1 value content"> {{ctrl.supplier.logistics.assce_audit_ap_status}}</div>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>APLF audit result: </b></div>
+        <div class="p-1 value content"> {{ctrl.supplier.logistics.aplf_audit_result}}% </div>
+        <div class="p-1 value"><a href="#"> APLF audit report 10.07.2018.pdf</a> </div>
+      </div>
+      <div class="flex-row pl-3 value-comment row">
+        Average APLF audit result: ?
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>APLF audit date: </b></div>
+        <div class="p-1 value content"> {{ctrl.supplier.parsed_aplf_audit_date}} </div>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Action plan status: </b></div>
+        <div class="p-1 value content bad-value"> {{ctrl.supplier.logistics.aplf_audit_ap_status}} </div>
+      </div>
+
+      <div class="flex-column p-2 row">
+        <div class="flex-row p-1 title"> TSO: </div>
+        <div class="flex-row p-0 m-0 row">
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"><b>1Y</b></div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>6M</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W26</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W27</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W28</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W29</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> ?   </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-row pl-2 pb-0 mb-0 row">
+        <div class="p-1 title"> DR: </div>
+      </div>
+      <div class="flex-row pl-2 mt-0 pt-0 row">
+        <div class="p-0 m-1 flex-column">
+          <div class="p-1 d-flex value align-items-center justify-content-center"><b>1Y</b></div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+        </div>
+        <div class="p-0 m-1 flex-column">
+          <div class="p-1 d-flex value align-items-center justify-content-center"> <b>6M</b> </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+        </div>
+        <div class="p-0 m-1 flex-column">
+          <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W26</b> </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+        </div>
+        <div class="p-0 m-1 flex-column">
+          <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W27</b> </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+        </div>
+        <div class="p-0 m-1 flex-column">
+          <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W28</b> </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+        </div>
+        <div class="p-0 m-1 flex-column">
+          <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W29</b> </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> ?  </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid p-3 m-0 mt-3 main-content">
+      <div class="flex-row p-2 row">
+        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Capacity risks score </div>
+        <div class="p-1 rating-content d-flex align-items-center justify-content-center capacity">{{ctrl.supplier.capacity_rating}}</div>
+        <div class="p-1 d-flex align-items-center justify-content-center">Average: ? - ?-th</div>
+      </div>
+      
+      <div class="flex-row pl-2 pr-2 pb-0 mb-0 row capacity-title-row">
+        <div class="p-0 ml-1 d-flex align-items-end cf ">CF</div>
+        <div class="p-0 ml-1 d-flex align-items-end cf-label">CF label</div>
+        <div class="p-0 ml-1 d-flex align-items-end clients">Clients</div>
+        <div class="p-0 ml-1 d-flex align-items-end projects">Projects</div>
+        <div class="p-0 ml-1 d-flex align-items-end parts-nb">Parts nb</div>
+        <div class="p-0 ml-1 d-flex align-items-end cr-status">CR status</div>
+        <div class="p-0 ml-1 d-flex align-items-end Y1-status">Y+1 status</div>
+        <div class="p-0 ml-1 d-flex align-items-end Y2-status">Y+2 status</div>
+        <div class="p-0 ml-1 d-flex align-items-end w-working">W work hours</div>
+        <div class="p-0 ml-1 d-flex align-items-end new-shift">New shift LT(w)</div>
+        <div class="p-0 ml-1 d-flex align-items-end cap-audit-status">Capacity audit status</div>
+        <div class="p-0 ml-1 d-flex align-items-end manual-process">Manual process?</div>
+        <div class="p-0 ml-1 d-flex align-items-end shared-line">Shared line?</div>
+        <div class="p-0 ml-1 d-flex align-items-end mixes-change-sensability">Mixes change sens.?</div>
+        <div class="p-0 ml-1 d-flex align-items-end in-sp">In supply planning?</div>
+        <div class="p-0 ml-1 d-flex align-items-end in-sm">In shortage?</div>
+        <div class="p-0 ml-1 d-flex align-items-end cf-rating">Rating</div>
+        <div class="p-0 ml-1 d-flex align-items-end link">Link</div>
+      </div>
+
+      <div class="container-fluid p-0 m-0" ng-repeat="cap_file in ctrl.supplier.capacity.capacity_files track by $index">
+        <div class="flex-row pl-2 pr-2 pb-0 pt-0 row capacity-row" ng-click="ctrl.supplier.capacity.unhide_and_hide_graph($index)">
+          <div class="p-1 ml-1 mb-1 cf">{{cap_file.cf}}</div>
+          <div class="p-1 ml-1 mb-1 cf-label">{{car_file.cf_label}}</div>
+          <div class="p-1 ml-1 mb-1 clients">{{cap_file.clients}}</div>
+          <div class="p-1 ml-1 mb-1 projects">{{cap_file.projects}}</div>
+          <div class="p-1 ml-1 mb-1 parts-nb">{{cap_file.ref_nb}}</div>
+          <div class="p-1 ml-1 mb-1 cr-status" ng-class="cap_file.pm_status">{{cap_file.pm_status}}</div>
+          <div class="p-1 ml-1 mb-1 Y1-status" ng-class="cap_file.y1_status">{{cap_file.y1_status}}</div>
+          <div class="p-1 ml-1 mb-1 Y2-status" ng-class="cap_file.y2_status">{{cap_file.y2_status}}</div>
+          <div class="p-1 ml-1 mb-1 w-working">{{cap_file.weekly_working_hours}}</div>
+          <div class="p-1 ml-1 mb-1 new-shift">{{cap_file.new_shift_lead_time}}</div>
+          <div class="p-1 ml-1 mb-1 cap-audit-status">{{cap_file.capacity_audit_result}}</div>
+          <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center manual-process" ng-class="{{cap_file.manual_process}}?'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
+          <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center shared-line" ng-class="{{cap_file.several_clients}}?'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
+          <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center mixes-change-sensability" ng-class="{{cap_file.mix_change_sensability}}?'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
+          <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center in-sp" ng-class="{{cap_file.in_supply_planning}}?'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
+          <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center in-sm" ng-class="{{cap_file.in_shortage}}?'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
+          <div class="p-1 ml-1 mb-1 cf-rating">{{cap_file.rating}}</div>
+          <div class="p-1 ml-1 mb-1 link"><a href="https://suppliers.renault.com/dcr/index-ng.html#/capacityfile/search/general/{{cap_file.cf}}/LTST?lang=en" target="_blank"> <i class="fa fa-arrow-right"></i> A-DCP </a></div>
+        </div>
+
+        <div ng-hide="ctrl.supplier.capacity.capacity_files[$index].hide" class="main-content mt-4 capacity_chart">
+          <canvas id="capacity-graph-{{$index}}"></canvas>
+        </div>
+      </div>
+        
+        <script src="src/capacity_graph_supplier.js"></script>
+    </div>
+
+
+    <div class="container-fluid p-3 m-0 mt-3 main-content">
+      <div class="flex-row p-2 row">
+        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Product risks score </div>
+        <div class="p-1 rating-content d-flex align-items-center justify-content-center product">{{ctrl.supplier.product_rating}}</div>
+        <div class="p-1 d-flex align-items-center justify-content-center">Average: ? - ?-th</div>
+      </div>
+
+      <div class="flex-row pl-2 pr-2 pb-0 mb-0 row product-title-row">
+        <div class="m-1 pl-1 d-flex align-items-end value commodity"><b>Commodity:</b></div>
+        <div class="m-1 pl-3 d-flex align-items-end value csr-parts"><b>CSR parts:</b></div>
+        <div class="m-1 pl-3 d-flex align-items-end value visible-part"><b>Visible part:</b></div>
+        <div class="m-1 pl-3 d-flex align-items-end value new-process"><b>New process:</b></div>
+        <div class="m-1 pl-3 d-flex align-items-end value new-technology"><b>New technology:</b></div>
+        <div class="m-1 pl-3 d-flex align-items-end value new-commodity"><b>New commodity:</b></div>
+        <div class="m-1 pl-3 d-flex align-items-end value nb-operations"><b>Nb of operations:</b></div>
+      </div>
+
+      <div class="flex-row pl-2 pr-2 pb-0 pt-0 row product-row">
+        <div class="m-1 d-flex justify-content-center align-items-center commodity content foov">Stamping</div>
+        <div class="m-1 d-flex justify-content-center align-items-center csr-parts"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square check"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center visible-part"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-process"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-technology"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-commodity"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center nb-operations"><div class="p-2 d-flex justify-content-center align-items-center value content check-square">24</div></div>
+      </div>
+
+      <div class="flex-row pl-2 pr-2 pb-0 pt-0 row product-row">
+        <div class="m-1 d-flex justify-content-center align-items-center commodity content foov">Wires</div>
+        <div class="m-1 d-flex justify-content-center align-items-center csr-parts"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center visible-part"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-process"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-technology"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-commodity"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center nb-operations"><div class="p-2 d-flex justify-content-center align-items-center value content check-square">24</div></div>
+      </div>
+
+      <div class="flex-row pl-2 pr-2 pb-0 pt-0 row product-row">
+        <div class="m-1 d-flex justify-content-center align-items-center commodity content foov">Wires</div>
+        <div class="m-1 d-flex justify-content-center align-items-center csr-parts"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center visible-part"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-process"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-technology"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center new-commodity"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+        <div class="m-1 d-flex justify-content-center align-items-center nb-operations"><div class="p-2 d-flex justify-content-center align-items-center value content check-square">24</div></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!--- !!CHARTS!! -->
+  <div class="container-fluid p-1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <div class="main-content mt-4 chart">
+      <canvas id="bar-chart"></canvas>
+    </div>
+    <script src="src/bar-chart_supplier.js"> </script>
+    <div class="main-content mt-4 chart">
+      <canvas id="line-chart"></canvas>
+    </div>
+    <script src="src/line-chart_supplier.js"></script>
+
+    <div class="main-content mt-4 chart">
+      <canvas id="risks-chart"></canvas>
+    </div>
+    <script src="src/risks-chart_supplier.js"></script>
+    <!-- <div class="main-content mt-4 capacity_chart">
+      <canvas id="capacity-graph"></canvas>
+    </div>
+    <script src="src/capacity_graph_supplier.js"></script> -->
+  </div>
+
+  <div class="container-fluid p-1 mt-4">
+    <div class="container p-1 main-content">
+      <div class="maps">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2248.2599057006346!2d37.64803221548659!3d55.70185390338838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54b62561cc45f%3A0x1430fe1e17a6630e!2sALPHA+AUTOMOTIVE+TECHNOLOGIES!5e0!3m2!1sru!2sru!4v1543350460088" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+</div>
+

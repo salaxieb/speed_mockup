@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com +7 963 979 0000/css?family=Open+Sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="styles/main.styles.css" rel="stylesheet">
+    <link href="styles/supplier.styles.css" rel="stylesheet">
+    <!-- charts js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+    <!-- Angular JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+      var app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope) {
+        $scope.graph_hide = true;
+      });
+    </script>
+
+    <title>Supplier page</title>
+
+  </head>
+
+  <body ng-app="myApp" ng-controller="myCtrl">
+    <header class = "container-fluid">
+      <nav class="navbar navbar-expand-sm container main-container align-items-center">
+        <a class="navbar-brand" href="#">
+          <img src="img/logo1.png" width="80" class="align-middle" alt="">
+          <img src="img/logo2.png" width="200" class="align-middle" alt="">
+        </a>
+        <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <div class="d-flex justify-content-center align-items-end navbar-nav">
+              <div class="nav-item p-2 d-flex help align-items-begin">
+                <i class="material-icons md-20">help_outline</i>
+                <span class="help-content"> Help</span>
+              </div>
+              <div class="nav-item p-2 d-flex help align-items-begin">
+                <i class="material-icons md-20">error_outline</i>
+                <span class="help-content"> Error</span>
+              </div>
+              <div class="nav-item p-2 d-flex help align-items-begin">
+                <i class="material-icons md-20">portrait</i>
+                <span class="help-content"> Logout</span>
+              </div>
+            </div>
+          </div>
+      </nav>
+    </header>
+
+    <main class="supplier container-fluid p-0">
+      <div class="container main-container">
+        <div class="row main-top-content">
+          <div class="col-md justify-content-left">
+            <div class="mt-3 small-font">
+              <a href="main.html"> <i class="fa fa-arrow-left"></i> Back </a>
+            </div>
+
+            <div class="d-flex mb-3">
+              <div class="col navigation-button d-flex align-items-center justify-content-center active">
+                <a href="supplier.html">
+                  Score card
+                </a>
+              </div>
+              <div class="col navigation-button d-flex align-items-center justify-content-center">
+                <a href="dossier history.html">
+                  Dossier history
+                </a>
+              </div>
+              <div class="col navigation-button d-flex align-items-center justify-content-center">
+                <a href="supplier.html">
+                  Action plan
+                </a>
+              </div>
+              <div class="col navigation-button d-flex align-items-center justify-content-center">
+                <a href="supplier.html">
+                  Production follow-up
+                </a>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="p-1 row plant-name">
+                Supplier A
+              </div>
+              <div class="p-1 row">
+                <div class="p-0 m-0 d-flex">
+                115280, Россия, г. Москва, ул. Автозаводская, д. 23, стр. 82, пом. XXIV, ком. 13
+                </div>
+              </div>
+              <div class="p-1 container row">
+                <div class="col p-0 m-0">
+                  Longitude: 55.7039429
+                </div>
+                <div class="col p-0 m-0">
+                  Latitude: 37.6322841
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-md row rating pt-3 pr-4">
+            <div class="col p-0 d-flex flex-column align-items-center">
+              <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+                Environment score
+              </div>
+              <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+                <i class="fa fa-envira" style="font-size:11px;"></i>
+              </div>
+              <div class="p-1 rating-content d-flex align-items-center justify-content-center environment">
+                8
+              </div>
+              <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+                Average: 4.3 - 30-th
+              </div>
+            </div>
+            <div class="col p-0 d-flex flex-column align-items-center">
+              <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+                Logistics score
+              </div>
+              <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+                <i class="fa fa-share-alt-square" style="font-size:11px;"></i>
+              </div>
+              <div class="p-1 rating-content d-flex align-items-center justify-content-center logistics">
+                2
+              </div>
+              <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+                Average: 4.3 - 30-th
+              </div>
+            </div>
+            <div class="col p-0 d-flex flex-column align-items-center">
+              <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+                Capacity score
+              </div>
+              <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+                <i class="fa fa-fast-forward" style="font-size:11px;"></i>
+              </div>
+              <div class="p-1 rating-content d-flex align-items-center justify-content-center capacity">
+                8
+              </div>
+              <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+                Average: 4.3 - 30-th
+              </div>
+            </div>
+            <div class="col p-0 d-flex flex-column align-items-center">
+              <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+                Product score
+              </div>
+              <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+                <i class="fa fa-dropbox" style="font-size:11px;"></i>
+              </div>
+              <div class="p-1 rating-content d-flex align-items-center justify-content-center product">
+                8
+              </div>
+              <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+                Average: 4.3 - 30-th
+              </div>
+            </div>
+            <div class="col p-0 d-flex flex-column align-items-center">
+              <div class="p-1 rating-title down-10 d-flex align-items-center justify-content-center">
+                Quality score
+              </div>
+              <div class="p-1 rating-label down-10 d-flex align-items-center justify-content-center">
+                <i class="fa fa-thumbs-up" style="font-size:11px;"></i>
+              </div>
+              <div class="p-1 rating-content d-flex align-items-center justify-content-center quality">
+                8
+              </div>
+              <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
+                Average: 4.3 - 30-th
+              </div>
+            </div>
+            <div class="p-2 pt-2 d-flex overall-title align-items-center">
+              Overall risks level
+            </div>
+            <div class="col-12 p-2 d-flex overall">
+              <div class="p-1 overall-star d-flex align-items-center justify-content-center">
+                <i class="material-icons md-36">star</i>
+              </div>
+              <div class="p-1 overall-content d-flex align-items-center justify-content-center">
+                56
+              </div>
+            </div>
+            <div class="p-1 overall-comment d-flex align-items-center justify-content-center">
+              Average: 86 - 30-th
+            </div>
+          </div>
+        </div>
+
+        <!-- header end -->
+
+        <div class="container-fluid p-1">
+
+
+          <div class="container-fluid m-0 mt-3 inputs-row main-content">
+            <div class="row">
+              <div class="col-md-6 px-1">
+                <div class="p-1 d-flex title"> Comment: </div>
+                <div class="p-1 container content comment">
+                  <div class="p-1 d-flex value"> You are bad supplier </div>
+              </div>
+              </div>
+              <div class="col-md-6 pl-1 pr-1">
+                <div class="p-1 d-flex title"> Hidden from supplier comment: </div>
+                <div class="p-1 container content comment">
+                  <div class="p-1 d-flex value"> In fact they are quite good </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid m-0 mt-3 inputs-row main-content">
+            <div class="row p-1">
+              <div class="d-flex px-1 m-0 mt-1 container">
+                <div class="p-1 d-flex title col-5"> Code: </div>
+                <div class="p-1 d-flex title col-3"> Client: </div>
+                <div class="p-1 d-flex title col-4"> Projects: </div>
+              </div>
+
+              <div class="d-flex px-1 m-0 mt-1 container content">
+                <div class="p-1 d-flex value col-5"> SOMESUPPLIERMOSCOW-00005644500 </div>
+                <div class="p-1 d-flex value col-3"> RENAULTRUSSIA-900107 </div>
+                <div class="p-1 d-flex value col-4"> HHA, H79, H79N </div>
+              </div>
+
+              <div class="d-flex px-1 m-0 mt-1 container content">
+                <div class="p-1 d-flex value col-5"> SOMESUPPLIERMOSCOW-00005644500 </div>
+                <div class="p-1 d-flex value col-3"> RENAULTRUSSIA-900107 </div>
+                <div class="p-1 d-flex value col-4"> HHA, H79, H79N </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid m-0 mt-3 inputs-row main-content">
+            <div class="row p-1">
+              <div class="d-flex px-1 m-0 mt-1 container">
+                <div class="p-1 d-flex title col-5"> Commodity: </div>
+                <div class="p-1 d-flex title col-7"> Buyer: </div>
+              </div>
+
+              <div class="d-flex px-1 m-0 mt-1 container content">
+                <div class="p-1 d-flex value col-5"> Stamping </div>
+                <div class="p-1 d-flex value col-7"> Some buyer contact smbuyer@renault.com +7 963 979 0000 </div>
+              </div>
+
+              <div class="d-flex px-1 m-0 mt-1 container content">
+                <div class="p-1 d-flex value col-5"> Second commodity </div>
+                <div class="p-1 d-flex value col-7"> Some buyer contact smbuyer@renault.com +7 963 979 0000 </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid p-3 m-0 mt-3 inputs-row main-content">
+            <div class="row">
+              <div class="col-md row pl-1 pr-1">
+                <div class="pl-3 col-12 title"> Client contacts: </div>
+                <div class="pl-3 col-3 value text-right"><b>TGP:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+                <div class="pl-3 col-3 value text-right"><b>SRMT Pilot:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+                <div class="pl-3 col-3 value text-right"><b>TGP:</b></div> <div class="col-9 value"> Name&nbsp;Surname <a href="mailto:name.surname@renault.com?Subject=Alpha%20automotive%20lightning"> name.surname@renault.com </a> +7&nbsp;963&nbsp;979&nbsp;0000</div>
+                <div class="pl-3 col-3 value text-right"><b>SSD:</b></div> <div class="col-9 value "> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+                <div class="pl-3 col-3 value text-right"><b>TGP:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+                <div class="pl-3 col-3 value text-right"><b>Buyer:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+                <div class="pl-3 col-3 value text-right"><b>PPM:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+                <div class="pl-3 col-3 value text-right"><b>SRMT Pilot:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+              </div>
+              <div class="col-md pl-1 pr-1">
+                <div class="pl-3 col-12 title">Supplier contacts: </div>
+                <div class="p-1">
+                  <div class="m-1 container"><div class="row"><div class="pl-3 col-3 value text-right"><b>KAM:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div></div></div>
+                  <div class="m-1 container"><div class="row"><div class="pl-3 col-3 value text-right"><b>Some Plant general manager:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div></div></div>
+                  <div class="m-1 container"><div class="row"><div class="pl-3 col-3 value text-right"><b>KAM:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div></div></div>
+                  <div class="m-1 container"><div class="row"><div class="pl-3 col-3 value text-right"><b>Logistics:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div></div></div>
+                  <div class="m-1 container"><div class="row"><div class="pl-3 col-3 value text-right"><b>Commercial:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div></div></div>
+
+                  <!-- <div class="pl-3 col-3 value text-right"><b>Some Plant general manager:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+                  <div class="pl-3 col-3 value text-right"><b>Logistics:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
+                  <div class="pl-3 col-3 value text-right"><b>Commercial:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid p-3 m-0 mt-3 inputs-row main-content">
+            <div class="flex-row p-2 row">
+              <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Environment risks score </div>
+              <div class="p-1 rating-content d-flex align-items-center justify-content-center environment">8</div>
+              <div class="p-1 d-flex align-items-center justify-content-center">Average: 4.3 - 30-th</div>
+            </div>
+
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>Start of deliveries: </b></div>
+              <div class="p-1 value content">M03 2015</div>
+
+              <div class="p-1 value"><b>Alliance supplier for:</b></div>
+              <div class="p-1 value content bad-value">3Y 4M</div>
+            </div>
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>Low cost country?:</b></div>
+              <div class="p-1 value content bad-value"><i class="fa fa-check fa-lg"></i></div>
+            </div>
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>Imposed suppliers number:</b></div>
+              <div class="p-1 value content"><span>4</span> suppliers</div>
+            </div>
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>Maximum client lead-time:</b></div>
+              <div class="p-1 value content">4 weeks</div>
+            </div>
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>Supplies to another country:</b></div>
+              <div class="p-1 value content bad-value"><i class="fa fa-check fa-lg"></i></div>
+            </div>
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>Overseas supplies:</b></div>
+              <div class="p-1 value content bad-value"><i class="fa fa-check fa-lg"></i></div>
+            </div>
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>Action plan size:</b></div>
+              <div class="p-1 value content bad-value">4</div>
+            </div>
+          </div>
+
+          <div class="container-fluid p-3 m-0 mt-3 inputs-row main-content">
+            <div class="flex-row p-2 row">
+              <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Logistics risks score </div>
+              <div class="p-1 rating-content d-flex align-items-center justify-content-center logistics">2</div>
+              <div class="p-1 d-flex align-items-center justify-content-center">Average: 4.3 - 30-th</div>
+            </div>
+
+
+            <div class="row">
+              <div class="p-1 col-6 col-md-3">
+                <div class="p-1 title">Clients: </div>
+                <div class="p-1 value content">
+                  <div class="p-1"> RENAULTRUSSIA-900107 </div>
+                  <div class="p-1"> AVTOVAZRUSSIA-900107 </div>
+                </div>
+              </div>
+              <div class="p-1 col-4 col-md-2">
+                <div class="p-1 title">Lead-time: </div>
+                <div class="p-1 value content">
+                  <div class="p-1"> 2 D </div>
+                  <div class="p-1"> 2 W </div>
+                </div>
+              </div>
+              <div class="p-1 col-8 col-md-4">
+                <div class="p-1 title">Flow weight: </div>
+                <div class="p-1 value content">
+                  <div class="p-1"><b> 234 </b> actives 4% 55-th from 124 </div>
+                  <div class="p-1"><b>1234</b> actives 13% 1-st from 334 </div>
+                </div>
+              </div>
+              <div class="p-1 col-6 col-md-3">
+                <div class="p-1 title">Weight in delays: </div>
+                <div class="p-1 value content">
+                  <div class="p-1"><b> 22 </b> delays - 3% 2-nd </div>
+                  <div class="p-1"><b> 44 </b> delays - 12% 34-th </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>MMOG/Le self-assessment: </b></div>
+              <div class="p-1 value content"> A95% </div>
+              <div class="p-1 value "><a href="#"> MMOG-LE SA AAT 05.05.2018.xls</a> </div>
+            </div>
+
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>Clients comment: </b></div>
+              <div class="p-1 value content"> Overestimated </div>
+            </div>
+
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>Last SA date: </b></div>
+              <div class="p-1 value content"> 05.05.2018 </div>
+            </div>
+
+            <div class="flex-row p-2 row bad-value">
+              <div class="p-1 value"><b>ASSCE audit result: </b></div>
+              <div class="p-1 value content"> 3.3 </div>
+              <div class="p-1 value"><a href="#"> ASSCE audit report 24.05.2016.pdf</a> </div>
+            </div>
+            <div class="flex-row pl-3 value-comment row">
+              Average ASSCE audit result: 3.95
+            </div>
+
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>ASSCE audit date: </b></div>
+              <div class="p-1 value content"> 10.07.2018 </div>
+            </div>
+
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>Action plan status: </b></div>
+              <div class="p-1 value content good-value"> Closed </div>
+            </div>
+
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>APLF audit result: </b></div>
+              <div class="p-1 value content"> 95% </div>
+              <div class="p-1 value"><a href="#"> APLF audit report 10.07.2018.pdf</a> </div>
+            </div>
+            <div class="flex-row pl-3 value-comment row">
+              Average APLF audit result: 98%
+            </div>
+
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>APLF audit date: </b></div>
+              <div class="p-1 value content"> 10.07.2018 </div>
+            </div>
+
+            <div class="flex-row p-2 row">
+              <div class="p-1 value"><b>Action plan status: </b></div>
+              <div class="p-1 value content bad-value"> In process </div>
+            </div>
+
+            <div class="flex-column p-2 row">
+              <div class="flex-row p-1 title"> TSO: </div>
+              <div class="flex-row p-0 m-0 row">
+                <div class="p-0 m-1 flex-column">
+                  <div class="p-1 d-flex value align-items-center justify-content-center"><b>1Y</b></div>
+                  <div class="p-1 d-flex value content align-items-center justify-content-center"> 97 </div>
+                </div>
+                <div class="p-0 m-1 flex-column">
+                  <div class="p-1 d-flex value align-items-center justify-content-center"> <b>6M</b> </div>
+                  <div class="p-1 d-flex value content align-items-center justify-content-center"> 97 </div>
+                </div>
+                <div class="p-0 m-1 flex-column">
+                  <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W26</b> </div>
+                  <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
+                </div>
+                <div class="p-0 m-1 flex-column">
+                  <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W27</b> </div>
+                  <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
+                </div>
+                <div class="p-0 m-1 flex-column">
+                  <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W28</b> </div>
+                  <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
+                </div>
+                <div class="p-0 m-1 flex-column">
+                  <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W29</b> </div>
+                  <div class="p-1 d-flex value content align-items-center justify-content-center"> 100   </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex-row pl-2 pb-0 mb-0 row">
+              <div class="p-1 title"> DR: </div>
+            </div>
+            <div class="flex-row pl-2 mt-0 pt-0 row">
+              <div class="p-0 m-1 flex-column">
+                <div class="p-1 d-flex value align-items-center justify-content-center"><b>1Y</b></div>
+                <div class="p-1 d-flex value content align-items-center justify-content-center"> 97 </div>
+              </div>
+              <div class="p-0 m-1 flex-column">
+                <div class="p-1 d-flex value align-items-center justify-content-center"> <b>6M</b> </div>
+                <div class="p-1 d-flex value content align-items-center justify-content-center"> 97 </div>
+              </div>
+              <div class="p-0 m-1 flex-column">
+                <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W26</b> </div>
+                <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
+              </div>
+              <div class="p-0 m-1 flex-column">
+                <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W27</b> </div>
+                <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
+              </div>
+              <div class="p-0 m-1 flex-column">
+                <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W28</b> </div>
+                <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
+              </div>
+              <div class="p-0 m-1 flex-column">
+                <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W29</b> </div>
+                <div class="p-1 d-flex value content align-items-center justify-content-center"> 100   </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid p-3 m-0 mt-3 inputs-row main-content">
+            <div class="flex-row p-2 row">
+              <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Capacity risks score </div>
+              <div class="p-1 rating-content d-flex align-items-center justify-content-center capacity">8</div>
+              <div class="p-1 d-flex align-items-center justify-content-center">Average: 4.3 - 30-th</div>
+            </div>
+
+            <div class="flex-row pl-2 pr-2 pb-0 mb-0 row capacity-title-row">
+              <div class="p-0 ml-1 d-flex align-items-end cf ">CF</div>
+              <div class="p-0 ml-1 d-flex align-items-end cf-label">CF label</div>
+              <div class="p-0 ml-1 d-flex align-items-end clients">Clients</div>
+              <div class="p-0 ml-1 d-flex align-items-end projects">Projects</div>
+              <div class="p-0 ml-1 d-flex align-items-end parts-nb">Parts nb</div>
+              <div class="p-0 ml-1 d-flex align-items-end cr-status">CR status</div>
+              <div class="p-0 ml-1 d-flex align-items-end Y1-status">Y+1 status</div>
+              <div class="p-0 ml-1 d-flex align-items-end Y2-status">Y+2 status</div>
+              <div class="p-0 ml-1 d-flex align-items-end w-working">W work hours</div>
+              <div class="p-0 ml-1 d-flex align-items-end new-shift">New shift LT(w)</div>
+              <div class="p-0 ml-1 d-flex align-items-end cap-audit-status">Capacity audit status</div>
+              <div class="p-0 ml-1 d-flex align-items-end manual-process">Manual process?</div>
+              <div class="p-0 ml-1 d-flex align-items-end shared-line">Shared line?</div>
+              <div class="p-0 ml-1 d-flex align-items-end mixes-change-sensability">Mixes change sens.?</div>
+              <div class="p-0 ml-1 d-flex align-items-end in-sp">In supply planning?</div>
+              <div class="p-0 ml-1 d-flex align-items-end in-sm">In shortage?</div>
+              <div class="p-0 ml-1 d-flex align-items-end cf-rating">Rating</div>
+              <div class="p-0 ml-1 d-flex align-items-end link">Link</div>
+            </div>
+
+            <div class="flex-row pl-2 pr-2 pb-0 pt-0 row capacity-row">
+              <div class="p-1 ml-1 mb-1 cf">2616</div>
+              <div class="p-1 ml-1 mb-1 cf-label">Injection 200t</div>
+              <div class="p-1 ml-1 mb-1 clients">Izh,ORU,NLT</div>
+              <div class="p-1 ml-1 mb-1 projects">J11,T32,XHA</div>
+              <div class="p-1 ml-1 mb-1 parts-nb">12</div>
+              <div class="p-1 ml-1 mb-1 cr-status blu">BLU</div>
+              <div class="p-1 ml-1 mb-1 Y1-status org">ORG</div>
+              <div class="p-1 ml-1 mb-1 Y2-status grn">GRN</div>
+              <div class="p-1 ml-1 mb-1 w-working">168</div>
+              <div class="p-1 ml-1 mb-1 new-shift">2</div>
+              <div class="p-1 ml-1 mb-1 cap-audit-status">OK with AP</div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center manual-process bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center shared-line bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center mixes-change-sensability bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center in-sp bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center in-sm bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 cf-ating">5.5</div>
+              <div class="p-1 ml-1 mb-1 link"><a href="MAIN.html"> <i class="fa fa-arrow-right"></i> A-DCP </a></div>
+            </div>
+
+            <div class="flex-row pl-2 pr-2 pb-0 pt-0 row capacity-row">
+              <div class="p-1 ml-1 mb-1 cf">2616</div>
+              <div class="p-1 ml-1 mb-1 cf-label">Injection 200t</div>
+              <div class="p-1 ml-1 mb-1 clients">Izh,ORU,NLT</div>
+              <div class="p-1 ml-1 mb-1 projects">J11,T32,XHA</div>
+              <div class="p-1 ml-1 mb-1 parts-nb">12</div>
+              <div class="p-1 ml-1 mb-1 cr-status blu">BLU</div>
+              <div class="p-1 ml-1 mb-1 Y1-status org">ORG</div>
+              <div class="p-1 ml-1 mb-1 Y2-status grn">GRN</div>
+              <div class="p-1 ml-1 mb-1 w-working">168</div>
+              <div class="p-1 ml-1 mb-1 new-shift">2</div>
+              <div class="p-1 ml-1 mb-1 cap-audit-status">OK with AP</div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center manual-process bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center shared-line bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center mixes-change-sensability bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center in-sp bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center in-sm bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 cf-ating">5.5</div>
+              <div class="p-1 ml-1 mb-1 link"><a href="MAIN.html"> <i class="fa fa-arrow-right"></i> A-DCP </a></div>
+            </div>
+
+            <div ng-click="graph_hide=!graph_hide" class="flex-row pl-2 pr-2 pb-0 pt-0 row capacity-row">
+              <div class="p-1 ml-1 mb-1 cf good-value">2616</div>
+              <div class="p-1 ml-1 mb-1 cf-label">Injection 200t</div>
+              <div class="p-1 ml-1 mb-1 clients">Izh,ORU,NLT</div>
+              <div class="p-1 ml-1 mb-1 projects">J11,T32,XHA</div>
+              <div class="p-1 ml-1 mb-1 parts-nb">12</div>
+              <div class="p-1 ml-1 mb-1 cr-status blu">BLU</div>
+              <div class="p-1 ml-1 mb-1 Y1-status org">ORG</div>
+              <div class="p-1 ml-1 mb-1 Y2-status grn">GRN</div>
+              <div class="p-1 ml-1 mb-1 w-working">168</div>
+              <div class="p-1 ml-1 mb-1 new-shift">2</div>
+              <div class="p-1 ml-1 mb-1 cap-audit-status">OK with AP</div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center manual-process bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center shared-line bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center mixes-change-sensability bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center in-sp bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center in-sm bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 cf-ating">5.5</div>
+              <div class="p-1 ml-1 mb-1 link"><a href="MAIN.html"> <i class="fa fa-arrow-right"></i> A-DCP </a></div>
+            </div>
+
+            <div ng-hide=graph_hide class="main-content mt-4 capacity_chart">
+              <canvas id="capacity-graph"></canvas>
+            </div>
+            <script src="src/capacity_graph_supplier.js"></script>
+
+            <div class="flex-row pl-2 pr-2 pb-0 pt-0 row capacity-row">
+              <div class="p-1 ml-1 mb-1 cf">2616</div>
+              <div class="p-1 ml-1 mb-1 cf-label">Injection 200t</div>
+              <div class="p-1 ml-1 mb-1 clients">Izh,ORU,NLT</div>
+              <div class="p-1 ml-1 mb-1 projects">J11,T32,XHA</div>
+              <div class="p-1 ml-1 mb-1 parts-nb">12</div>
+              <div class="p-1 ml-1 mb-1 cr-status blu">BLU</div>
+              <div class="p-1 ml-1 mb-1 Y1-status org">ORG</div>
+              <div class="p-1 ml-1 mb-1 Y2-status grn">GRN</div>
+              <div class="p-1 ml-1 mb-1 w-working">168</div>
+              <div class="p-1 ml-1 mb-1 new-shift">2</div>
+              <div class="p-1 ml-1 mb-1 cap-audit-status">OK with AP</div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center manual-process bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center shared-line bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center mixes-change-sensability bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center in-sp bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center in-sm bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 cf-ating">5.5</div>
+              <div class="p-1 ml-1 mb-1 link"><a href="MAIN.html"> <i class="fa fa-arrow-right"></i> A-DCP </a></div>
+            </div>
+
+            <div class="flex-row pl-2 pr-2 pb-0 pt-0 row capacity-row">
+              <div class="p-1 ml-1 mb-1 cf">2616</div>
+              <div class="p-1 ml-1 mb-1 cf-label">Injection 200t</div>
+              <div class="p-1 ml-1 mb-1 clients">Izh,ORU,NLT</div>
+              <div class="p-1 ml-1 mb-1 projects">J11,T32,XHA</div>
+              <div class="p-1 ml-1 mb-1 parts-nb">12</div>
+              <div class="p-1 ml-1 mb-1 cr-status blu">BLU</div>
+              <div class="p-1 ml-1 mb-1 Y1-status org">ORG</div>
+              <div class="p-1 ml-1 mb-1 Y2-status grn">GRN</div>
+              <div class="p-1 ml-1 mb-1 w-working">168</div>
+              <div class="p-1 ml-1 mb-1 new-shift">2</div>
+              <div class="p-1 ml-1 mb-1 cap-audit-status">OK with AP</div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center manual-process bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center shared-line bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center mixes-change-sensability bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center in-sp bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 d-flex justify-content-center align-items-center in-sm bad-value"><i class="fa fa-check fa-lg"></i></div>
+              <div class="p-1 ml-1 mb-1 cf-ating">5.5</div>
+              <div class="p-1 ml-1 mb-1 link"><a href="MAIN.html"> <i class="fa fa-arrow-right"></i> A-DCP </a></div>
+            </div>
+          </div>
+
+          <div class="container-fluid p-3 m-0 mt-3 inputs-row main-content">
+            <div class="flex-row p-2 row">
+              <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Product risks score </div>
+              <div class="p-1 rating-content d-flex align-items-center justify-content-center product">8</div>
+              <div class="p-1 d-flex align-items-center justify-content-center">Average: 4.3 - 30-th</div>
+            </div>
+
+            <div class="flex-row pl-2 pr-2 pb-0 mb-0 row product-title-row">
+              <div class="m-1 pl-1 d-flex align-items-end value commodity"><b>Commodity:</b></div>
+              <div class="m-1 pl-3 d-flex align-items-end value csr-parts"><b>CSR parts:</b></div>
+              <div class="m-1 pl-3 d-flex align-items-end value visible-part"><b>Visible part:</b></div>
+              <div class="m-1 pl-3 d-flex align-items-end value new-process"><b>New process:</b></div>
+              <div class="m-1 pl-3 d-flex align-items-end value new-technology"><b>New technology:</b></div>
+              <div class="m-1 pl-3 d-flex align-items-end value new-commodity"><b>New commodity:</b></div>
+              <div class="m-1 pl-3 d-flex align-items-end value nb-operations"><b>Nb of operations:</b></div>
+            </div>
+
+            <div class="flex-row pl-2 pr-2 pb-0 pt-0 row product-row">
+              <div class="m-1 d-flex justify-content-center align-items-center commodity content foov">Stamping</div>
+              <div class="m-1 d-flex justify-content-center align-items-center csr-parts"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square check"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center visible-part"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center new-process"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center new-technology"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center new-commodity"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center nb-operations"><div class="p-2 d-flex justify-content-center align-items-center value content check-square">24</div></div>
+            </div>
+
+            <div class="flex-row pl-2 pr-2 pb-0 pt-0 row product-row">
+              <div class="m-1 d-flex justify-content-center align-items-center commodity content foov">Wires</div>
+              <div class="m-1 d-flex justify-content-center align-items-center csr-parts"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center visible-part"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center new-process"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center new-technology"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center new-commodity"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center nb-operations"><div class="p-2 d-flex justify-content-center align-items-center value content check-square">24</div></div>
+            </div>
+
+            <div class="flex-row pl-2 pr-2 pb-0 pt-0 row product-row">
+              <div class="m-1 d-flex justify-content-center align-items-center commodity content foov">Wires</div>
+              <div class="m-1 d-flex justify-content-center align-items-center csr-parts"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center visible-part"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center new-process"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center new-technology"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center new-commodity"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
+              <div class="m-1 d-flex justify-content-center align-items-center nb-operations"><div class="p-2 d-flex justify-content-center align-items-center value content check-square">24</div></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!--- !!CHARTS!! -->
+        <div class="container-fluid p-1">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+          <div class="main-content mt-4 chart">
+            <canvas id="bar-chart"></canvas>
+          </div>
+          <script src="src/bar-chart_supplier.js"> </script>
+          <div class="main-content mt-4 chart">
+            <canvas id="line-chart"></canvas>
+          </div>
+          <script src="src/line-chart_supplier.js"></script>
+
+          <div class="main-content mt-4 chart">
+            <canvas id="risks-chart"></canvas>
+          </div>
+          <script src="src/risks-chart_supplier.js"></script>
+          <!-- <div class="main-content mt-4 capacity_chart">
+            <canvas id="capacity-graph"></canvas>
+          </div>
+          <script src="src/capacity_graph_supplier.js"></script> -->
+        </div>
+
+        <div class="container-fluid p-1 mt-4">
+          <div class="container p-1 main-content">
+            <div class="maps">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2248.2599057006346!2d37.64803221548659!3d55.70185390338838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54b62561cc45f%3A0x1430fe1e17a6630e!2sALPHA+AUTOMOTIVE+TECHNOLOGIES!5e0!3m2!1sru!2sru!4v1543350460088" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small teal mt-4 pt-4">
+      <div class="container main-container">
+        <div class="row">
+          <div class="col-md-6 mt-4 justify-content-center justify-content-md-start align-items-center d-flex">
+            <a class="brand" href="#">
+              <img src="img/logo1_1.png" width="80" class="align-middle" alt="">
+              <img src="img/logo2_1.png" width="200" class="align-middle" alt="">
+            </a>
+          </div>
+
+          <!-- <hr class="clearfix w-100 d-md-none pb-3"> -->
+
+          <div class="col-md-6 align-items-center mt-4">
+            <div class="d-flex justify-content-center justify-content-md-end help-content align-items-end">
+                <div class="d-flex p-2 help align-items-center">
+                  <i class="material-icons md-20">help_outline</i>
+                  <span class="help-content"> Help</span>
+                </div>
+                <div class="d-flex p-2 help align-items-center">
+                  <i class="material-icons md-20">error_outline</i>
+                  <span class="help-content"> Error</span>
+                </div>
+                <div class="d-flex p-2 help align-items-center">
+                  <i class="material-icons md-20">portrait</i>
+                  <span class="help-content"> Logout</span>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright text-center pt-5">© 2018 RNM alliance:
+        <a href="https://www.alliance-2022.com/"> allince-2022.com</a>
+      </div>
+      <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- Charts JS connectyion -->
+
+
+  </body>
+</html>
