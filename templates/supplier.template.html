@@ -168,19 +168,19 @@
       <div class="row">
         <div class="d-inline-flex flex-column pl-1 pr-1">
           <div class="p-1 d-flex title"> Code: </div>
-          <div class="p-1 conteiner content" ng-repeat="code in ctrl.clients">
+          <div class="p-1 container content" ng-repeat="code in ctrl.clients">
             <div class="p-1 d-flex value"> {{ctrl.supplier.ipprfl_codes[0]}} </div>
         </div>
         </div>
         <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
           <div class="p-1 d-flex title"> Client: </div>
-          <div class="p-1 conteiner content" ng_repeat="client in ctrl.clients">
+          <div class="p-1 container content" ng_repeat="client in ctrl.clients">
             <div class="p-1 d-flex value"> {{client.code}} </div>
           </div>
         </div>
         <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
           <div class="p-1 d-flex title"> Projects: </div>
-          <div class="p-1 conteiner content" ng_repeat="client in ctrl.clients">
+          <div class="p-1 container content" ng_repeat="client in ctrl.clients">
             <div class="p-1 d-flex value"> UNK </div>
           </div>
         </div>
@@ -191,13 +191,13 @@
       <div class="row">
         <div class="d-inline-flex flex-column pl-1 pr-1">
           <div class="p-1 d-flex title"> Commodity: </div>
-          <div class="p-1 conteiner content" ng-repeat="commodity in ctrl.supplier.commodities_buyers">
+          <div class="p-1 container content" ng-repeat="commodity in ctrl.supplier.commodities_buyers">
             <div class="p-1 d-flex value"> {{commodity.commodity}} </div>
           </div>
         </div>
         <div class="d-inline-flex flex-column pl-1 pr-1">
           <div class="p-1 d-flex title"> Buyer: </div>
-          <div class="p-1 conteiner content" ng-repeat="buyer in ctrl.supplier.commodities_buyers">
+          <div class="p-1 container content" ng-repeat="buyer in ctrl.supplier.commodities_buyers">
             <div class="p-1 d-flex value"> {{buyer.buyer.name}} {{buyer.buyer.email}}</div>
           </div>
         </div>
@@ -206,17 +206,17 @@
 
     <div class="container-fluid p-3 m-0 mt-3 main-content">
       <div class="row">
-        <div class="col-md row pl-1 pr-1">
+        <div class="col-md row pl-1 pr-1 ml-1">
           <div class="pl-3 col-12 title" > Client contacts: </div>
           <div class="row" ng-repeat="contact in ctrl.supplier.supplier_contacts">
-            <div class="pl-3 col-3 value text-right"><b>{{contact.position}}:</b></div> <div class="col-9 value"> {{contact.name}} <a href="mailto:{{contact.email}}?Subject={{ctrl.supplier.brand}}">{{contact.email}}</a></div>
+            <div class="pl-3 col-4 value text-right"><b>{{contact.position}}:</b></div> <div class="col-8 value"> {{contact.name}} <a href="mailto:{{contact.email}}?Subject={{ctrl.supplier.brand}}">{{contact.email}}</a></div>
           </div>
         </div>
         <div class="col-md pl-1 pr-1">
           <div class="pl-3 col-12 title">Supplier contacts: </div>
           <div class="p-1">
             <div class="row" ng-repeat="contact in ctrl.supplier.supplier_client_contacts">
-              <div class="pl-3 col-3 value text-right"><b>{{contact.position}}:</b></div> <div class="col-9 value"> {{contact.name}} <a href="mailto:{{contact.email}}?Subject={{ctrl.supplier.brand}}">{{contact.email}}</a></div>
+              <div class="pl-3 col-4 value text-right"><b>{{contact.position}}:</b></div> <div class="col-8 value"> {{contact.name}} <a href="mailto:{{contact.email}}?Subject={{ctrl.supplier.brand}}">{{contact.email}}</a></div>
             </div>
           </div>
         </div>

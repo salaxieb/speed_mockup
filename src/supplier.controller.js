@@ -286,20 +286,36 @@ function SupplierController($rootScope, $state, supplier, SuppliersService, Supp
 
 	/////////saving data from edit page////
 	ctrl.save_all = function () {
+		element = document.getElementsByClassName("main-container")[1];
+		element.style.backgroundColor = "rgb(230,230,230)";
+
 		console.log("saving_started")
 		supplier = ctrl.supplier
 
 		console.log("AAAAA удаляем данные поставщика АААААА")
   		delete supplier.capacity
   		delete supplier.news
+
+
+
 		SupplierService.save_all(ctrl.supplier).then(
+
 			function successs (response){
-				console.log("SUCCCESS")
-				ctrl.success = true
+				console.log("SUCCCESS");
+				element = document.getElementsByClassName("main-container")[1];
+				element.style.backgroundColor = "rgb(212,237,218)";
+				$timeout(function(){
+					element.style.backgroundColor = "";
+				}, 800)
 			}, 
 			function error (response){
 				console.log("FAILURE")
-				ctrl.success = false
+				element = document.getElementsByClassName("main-container")[1];
+				element.style.backgroundColor = "rgb(248,215,218)";
+				$timeout(function(){
+					element.style.backgroundColor = "";
+				}, 800)
+
 			})
 	}
 

@@ -1,5 +1,5 @@
 
-<div class="container main-container" ng-class="{{ctrl.success}}?'success':' '">
+<div class="container main-container">
   {{ctrl.success}}
   <div class="row main-top-content mt-4">
     <div class="col-md-6 justify-content-left">
@@ -31,7 +31,7 @@
         <div class="row">
             <div class="col-md-6 pl-1 pr-1">
               <div class="p-1 d-flex title"> Comment: </div>
-              <textarea class="p-1 container content comment" type="textarea" placeholder="Bad supplier!"></textarea >
+              <textarea class="p-1 container content comment" type="textarea" ng-model="ctrl.supplier.comment" placeholder="Bad supplier!"></textarea >
             </div>
         <div class="col-md-6 pl-1 pr-1">
           <div class="p-1 d-flex title"> Hidden from supplier comment: </div>
@@ -43,36 +43,62 @@
   </div>
 
 
-    <div class="container-fluid m-0 mt-3 inputs-row main-content">
-      <div class="row p-1">
-        <div class="d-flex px-1 m-0 mt-1 container">
-          <div class="p-1 d-flex title col-5"> Code: </div>
-          <div class="p-1 d-flex title col-3"> Client: </div>
-          <div class="p-1 d-flex title col-3"> Projects: </div>
+  <div class="container-fluid p-3 m-0 mt-3 main-content">
+    <div class="row">
+      <div class="d-inline-flex flex-column pl-1 pr-1">
+        <div class="p-1 d-flex title"> Code: </div>
+        <div class="p-1 container content" ng-repeat="code in ctrl.clients">
+          <div class="p-1 d-flex value"> {{ctrl.supplier.ipprfl_codes[0]}} </div>
         </div>
+        <input class="p-1 d-flex value inputs-updates-row">
 
-        <div class="d-flex px-1 m-0 mt-1 container content">
-          <div class="p-1 d-flex value col-5"> SOMESUPPLIERMOSCOW-00005644500 </div>
-          <div class="p-1 d-flex value col-3"> RENAULTRUSSIA-900107 </div>
-          <div class="p-1 d-flex value col-3"> HHA, H79, H79N </div>
-          <button type="button" class="btn btn btn-outline-danger btn-sm col-1"> Del </button>
+      </div>
+      <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
+        <div class="p-1 d-flex title"> Client: </div>
+        <div class="p-1 container content" ng_repeat="client in ctrl.clients">
+          <div class="p-1 d-flex value"> {{client.code}} </div>
         </div>
-        <div class="d-flex px-1 m-0 mt-1 container content">
-          <div class="p-1 d-flex value col-5"> SOMESUPPLIERMOSCOW-00005644500 </div>
-          <div class="p-1 d-flex value col-3"> AvtoVAZ-900107 </div>
-          <div class="p-1 d-flex value col-3"> X52, XJF, H79N </div>
-          <button type="button" class="btn btn btn-outline-danger btn-sm col-1"> Del </button>
+        <input class="p-1 d-flex value inputs-updates-row">
+      </div>
+      <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
+        <div class="p-1 d-flex title"> Projects: </div>
+        <div class="p-1 container content" ng_repeat="client in ctrl.clients">
+          <div class="p-1 d-flex value"> UNK </div>
         </div>
+        <input class="p-1 d-flex value inputs-updates-row">
+      </div>
+      <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
+        <div class="p-1 d-flex title" >Edit</div>
+          <div class="p-0 container" ng_repeat="client in ctrl.clients track by $index">
+            <button type="button" class="btn btn btn-outline-danger btn-sm row-del-save-button"> Del </button>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm row-del-save-button"> Save </button>
+        </div>
+      </div>
+  </div>
 
-        <div class="d-flex px-1 m-0 mt-1 container content">
-          <input class="p-1 d-flex value col-5">
-          <select class="p-1 d-flex value col-3">
-            <option selected></option>
-            <option>RENAULTRUSSIA-900107</option>
-            <option>AVTOVAZRUSSIA-900107</option>
-          </select>
-          <input class="p-1 d-flex value col-3">
-          <button type="button" class="btn btn-primary btn-sm col-1" ng-click="ctrl.save_all()"> Save </button>
+      <div class="container-fluid p-3 m-0 mt-3 main-content">
+      <div class="row">
+        <div class="d-inline-flex flex-column pl-1 pr-1">
+          <div class="p-1 d-flex title"> Commodity: </div>
+          <div class="p-1 container content" ng-repeat="commodity in ctrl.supplier.commodities_buyers">
+            <div class="p-1 d-flex value"> {{commodity.commodity}} </div>
+          </div>
+          <input class="p-1 d-flex value inputs-updates-row">
+        </div>
+        <div class="d-inline-flex flex-column pl-1 pr-1">
+          <div class="p-1 d-flex title"> Buyer: </div>
+          <div class="p-1 container content" ng-repeat="buyer in ctrl.supplier.commodities_buyers">
+            <div class="p-1 d-flex value"> {{buyer.buyer.name}} {{buyer.buyer.email}}</div>
+          </div>
+          <input class="p-1 d-flex value inputs-updates-row">
+        </div>
+        <div class="d-inline-flex flex-column pl-1 pr-1">
+          <div class="p-1 d-flex title"> Edit: </div>
+          <div class="p-0 container" ng_repeat="buyer in ctrl.supplier.commodities_buyers">
+            <button type="button" class="btn btn btn-outline-danger btn-sm row-del-save-button"> Del </button>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm row-del-save-button"> Save </button>
         </div>
       </div>
     </div>
@@ -489,4 +515,15 @@
       </div>
     </div>
   </div>
-  <div class="col-12 p-0 d-flex justify-content-
+  <div class="col-12 p-0 d-flex justify-content-end">
+    <button type="button" class="btn btn-primary value btn-sm col-1" ng-click="ctrl.save_all()"> Save </button>
+  </div>
+
+    <div class="col-12 p-2 mt-4 d-flex">
+      <button ui-sref="supplier"class="p-1 edit-button d-flex align-items-center justify-content-center">
+        Back to view
+      </button>
+    </div>
+</div>
+
+

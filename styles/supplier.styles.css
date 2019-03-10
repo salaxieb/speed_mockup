@@ -190,6 +190,20 @@ div.RED {
   height: 400px;
 }
 
+/* supplier updates page styles here */
+
+.row-del-save-button {
+  height: 35px;
+  width: 55px;
+}
+
+.inputs-updates-row {
+  height: 35px;
+}
+
+/* supplier updates page styles ends here */
+
+
 
 
 /* supplier styles ends here */
