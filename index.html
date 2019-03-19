@@ -17,6 +17,7 @@
     <link href="styles/supplier.styles.css" rel="stylesheet">
     <link href="styles/login.styles.css" rel="stylesheet">
     <link href="styles/dossier_history.styles.css" rel="stylesheet">
+    <link href="styles/action_plan.styles.css" rel="stylesheet">
     <!-- Angular JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <!-- UI Router JS -->
@@ -41,7 +42,7 @@
   <body ng-app="speed">
     <header class = "container-fluid">
       <nav class="navbar navbar-expand-sm container main-container align-items-center">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" ui-sref="clients">
           <img src="img/logo1.png" width="80" class="align-middle" alt="">
           <img src="img/logo2.png" width="200" class="align-middle" alt="">
         </a>
@@ -50,18 +51,18 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <div class="d-flex justify-content-center align-items-end navbar-nav">
-              <div class="nav-item p-2 d-flex help align-items-begin">
+              <a class="nav-item p-2 d-flex help align-items-begin" ui-sref="not_found">
                 <i class="material-icons md-20">help_outline</i>
                 <span class="help-content"> Help</span>
-              </div>
-              <div class="nav-item p-2 d-flex help align-items-begin">
+              </a>
+              <a class="nav-item p-2 d-flex help align-items-begin" ui-sref="not_found">
                 <i class="material-icons md-20">error_outline</i>
                 <span class="help-content"> Error</span>
-              </div>
-              <div class="nav-item p-2 d-flex help align-items-begin">
+              </a>
+              <a class="nav-item p-2 d-flex help align-items-begin" ui-sref="login">
                 <i class="material-icons md-20">portrait</i>
                 <span class="help-content"> Logout</span>
-              </div>
+              </a>
             </div>
           </div>
       </nav>
@@ -87,7 +88,7 @@
       <div class="container main-container">
         <div class="row">
           <div class="col-md-6 mt-4 justify-content-center justify-content-md-start align-items-center d-flex">
-            <a class="brand" href="#">
+            <a class="brand" ui-sref="clients">
               <img src="img/logo1_1.png" width="80" class="align-middle" alt="">
               <img src="img/logo2_1.png" width="200" class="align-middle" alt="">
             </a>

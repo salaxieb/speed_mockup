@@ -1,6 +1,5 @@
 
-<ui-view></ui-view>
-<div class="container main-container" ng-hide="$state.current.name != 'supplier'">
+<div class="container main-container">
   <div class="row main-top-content">
     <div class="col-md justify-content-left">
       <!-- <div class="mt-3 small-font">
@@ -8,24 +7,24 @@
       </div> -->
 
       <div class="d-flex mb-3 mt-4">
-        <div class="col navigation-button d-flex align-items-center justify-content-center active">
-          <a ui-sref="clients">
+        <div class="col navigation-button d-flex align-items-center justify-content-center" ng-class="$state.current.name=='supplier' ? 'active':''">
+          <a ui-sref="supplier">
             Score card
           </a>
         </div>
-        <div class="col navigation-button d-flex align-items-center justify-content-center">
-          <a ui-sref="clients">
+        <div class="col navigation-button d-flex align-items-center justify-content-center" ng-class="$state.current.name=='supplier.dossier_history' ? 'active':''">
+          <a ui-sref="supplier.dossier_history">
             Dossier history
           </a>
         </div>
-        <div class="col navigation-button d-flex align-items-center justify-content-center">
-          <a ui-sref="clients">
+        <div class="col navigation-button d-flex align-items-center justify-content-center" ng-class="$state.current.name=='supplier.action_plan' ? 'active':''">
+          <a ui-sref="supplier.action_plan">
             Action plan
           </a>
         </div>
-        <div class="col navigation-button d-flex align-items-center justify-content-center">
-          <a ui-sref="clients">
-            Production follow-up
+        <div class="col navigation-button d-flex align-items-center justify-content-center" ng-class="$state.current.name=='supplier.update' ? 'active':''">
+          <a ui-sref="supplier.update">
+            Edit data
           </a>
         </div>
       </div>
@@ -48,11 +47,11 @@
           </div>
         </div>
       </div>
-      <div class="col-12 p-2 mt-4 d-flex">
-        <button ui-sref="supplier.update"class="p-1 edit-button d-flex align-items-center justify-content-center">
+      <!-- <div class="col-12 p-2 mt-4 d-flex" ng-hide="$state.current.name != 'supplier'">
+        <button ui-sref="supplier.update" class="p-1 edit-button d-flex align-items-center justify-content-center" ng-click="ctrl.viewChange()">
           Edit data
         </button>
-      </div>
+      </div> -->
 
     </div>
 
@@ -128,7 +127,7 @@
         </div>
       </div>
       <div class="p-2 pt-2 d-flex overall-title align-items-center">
-        Overall risks level
+        Overall supplier score
       </div>
       <div class="col-12 p-2 d-flex overall">
         <div class="p-1 overall-star d-flex align-items-center justify-content-center">
@@ -144,9 +143,11 @@
     </div>
   </div>
 
+  <ui-view></ui-view>
+
   <!-- header end -->
 
-  <div class="container-fluid p-1">
+  <div class="container-fluid p-1" ng-hide="$state.current.name != 'supplier'">
     <div class="container-fluid p-3 m-0 mt-3 main-content">
       <div class="row">
         <div class="col-md-6 pl-1 pr-1">
@@ -236,7 +237,7 @@
         <div class="p-1 value content">{{ctrl.supplier.start_of_deliveries}}</div>
 
         <div class="p-1 value"><b>Alliance supplier for:</b></div>
-        <div class="p-1 value content bad-value">{{ctrl.supplier.supplier_for}}</div>
+        <div class="p-1 value content value">{{ctrl.supplier.supplier_for}}</div>
       </div>
       <div class="flex-row p-2 row">
         <div class="p-1 value"><b>Low cost country?:</b></div>
@@ -309,7 +310,7 @@
 
       <div class="flex-row p-2 row">
         <div class="p-1 value"><b>Clients comment: </b></div>
-        <div class="p-1 value content"> {{ctrl.supplier.logistics.srm_pilot_comment}}</div>
+        <div class="p-1 value content" ng-class="ctrl.supplier.logistics.srm_pilot_comment=='overestimated'?'bad-value':'good-value'"> {{ctrl.supplier.logistics.srm_pilot_comment}}</div>
       </div>
 
       <div class="flex-row p-2 row">
@@ -527,7 +528,7 @@
   </div>
 
   <!--- !!CHARTS!! -->
-  <div class="container-fluid p-1">
+  <div class="container-fluid p-1" ng-hide="$state.current.name != 'supplier'">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <div class="main-content mt-4 chart">
       <canvas id="bar-chart"></canvas>
@@ -548,7 +549,7 @@
     <script src="src/capacity_graph_supplier.js"></script> -->
   </div>
 
-  <div class="container-fluid p-1 mt-4">
+  <div class="container-fluid p-1 mt-4" ng-hide="$state.current.name != 'supplier'">
     <div class="container p-1 main-content">
       <div class="maps">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2248.2599057006346!2d37.64803221548659!3d55.70185390338838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54b62561cc45f%3A0x1430fe1e17a6630e!2sALPHA+AUTOMOTIVE+TECHNOLOGIES!5e0!3m2!1sru!2sru!4v1543350460088" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>

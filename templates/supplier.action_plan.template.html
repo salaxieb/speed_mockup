@@ -1,0 +1,72 @@
+<div class="container-fluid p-3 m-0 mt-3 main-content">
+  <div class="row">
+    <div class="d-inline-flex flex-column pl-1 pr-1">
+      <div class="p-1 d-flex title"> Nb: </div>
+      <div class="p-1 mx-0 my-1 container content" ng-repeat="action in ctrl.supplier.action_plan track by $index">
+        <div class="p-1 d-flex value"> {{$index+1}} </div>
+      </div>
+    </div>
+
+    <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
+      <div class="p-1 d-flex title"> Topic: </div>
+      <div class="p-1 mx-0 my-1 container content" ng-repeat="action in ctrl.supplier.action_plan track by $index">
+        <div class="p-1 d-flex value"> {{action.theme}} </div>
+      </div>
+      <input class="p-1 mx-0 d-flex value inputs-updates-row theme-input" ng-model="theme_candidate">
+    </div>
+
+    <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
+      <div class="p-1 d-flex title"> Action: </div>
+      <div class="p-1 mx-0 my-1 container content" ng-repeat="action in ctrl.supplier.action_plan track by $index">
+        <div class="p-1 d-flex value"> {{action.action}} </div>
+      </div>
+      <input class="p-1 mx-0 d-flex value inputs-updates-row action-input" ng-model="action_candidate"> 
+    </div>
+
+    <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
+      <div class="p-1 d-flex title"> Supplier pilot: </div>
+      <div class="p-1 mx-0 my-1 container content" ng-repeat="action in ctrl.supplier.action_plan track by $index">
+        <div class="p-1 d-flex value"> {{action.supplier_pilot}} </div>
+      </div>
+      <input class="p-1 mx-0 d-flex value inputs-updates-row supplier-pilot-input" ng-model="supplier_pilot_candidate">
+    </div>
+
+    <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
+      <div class="p-1 d-flex title"> Client pilot: </div>
+      <div class="p-1 mx-0 my-1 container content" ng-repeat="action in ctrl.supplier.action_plan track by $index">
+        <div class="p-1 d-flex value"> {{action.client_pilot.name}} </div>
+      </div>
+      <input class="p-1 mx-0 d-flex value inputs-updates-row client-pilot-input" ng-model="client_pilot_candidate">
+    </div>
+
+
+    <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
+      <div class="p-1 d-flex title"> Deadline: </div>
+      <div class="p-1 mx-0 my-1 container content" ng-repeat="action in ctrl.supplier.action_plan track by $index">
+        <div class="p-1 d-flex value"> {{action.deadline?ctrl.parseDate(action.deadline):'no deadline'}} </div>
+      </div>
+      <input class="p-1 mx-0 d-flex value inputs-updates-row deadline-input" ng-model="deadline_candidate" placeholder="YYYY-MM-DD">
+    </div>
+
+    <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
+      <div class="p-1 d-flex title"> Edit: </div>
+      <div class="p-1 mx-0container" ng-repeat="action in ctrl.supplier.action_plan track by $index">
+        <button type="button" class="p-1 mx-0 btn btn btn-outline-danger btn-sm row-del-save-button" ng-click="ctrl.delFromArray(ctrl.supplier.action_plan, $index)"> Del </button>
+      </div>
+      <button type="button" class="p-1 mx-1 btn btn-primary btn-sm row-del-save-button" 
+      ng-click="
+      data = {
+        'theme':theme_candidate,
+        'action':action_candidate,
+        'supplier_pilot':supplier_pilot_candidate,
+        'client_pilot':{'name':client_pilot_candidate},
+        'deadline':deadline_candidate
+      };
+      ctrl.pushToArray(ctrl.supplier.action_plan, data);"> Add </button>
+    </div>
+  </div>
+</div>
+
+<div class="col-12 p-0 d-flex justify-content-end">
+        <button type="button" class="btn btn-primary value btn-sm col-1" ng-click="ctrl.save_all()"> Save </button>
+    </div>

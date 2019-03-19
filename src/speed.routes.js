@@ -60,13 +60,41 @@ function RouterConfig($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/supplier.update.template.html'
   }
 
+  var supplier_dossierState = {
+    name: 'supplier.dossier_history',
+    url: '/dossier_history',
+    // controller: 'SupplierController as ctrl',
+    // controller: 'SupplierUpdateController as ctrl',
+    templateUrl: 'templates/supplier.dossier_history.template.html'
+  }
+
+  var supplier_action_planState = {
+    name: 'supplier.action_plan',
+    url: '/action_plan',
+    // controller: 'SupplierController as ctrl',
+    // controller: 'SupplierUpdateController as ctrl',
+    templateUrl: 'templates/supplier.action_plan.template.html'
+  }
+
+  var not_foundState = {
+    name: 'not_found',
+    url: '/404',
+    // controller: 'SupplierController as ctrl',
+    // controller: 'SupplierUpdateController as ctrl',
+    templateUrl: 'templates/page_not_found.template.html'
+  }
+
+
+
   $urlRouterProvider.otherwise('/login');
 
   $stateProvider.state(loginState);
   $stateProvider.state(clientsState);
   $stateProvider.state(clientState);
   $stateProvider.state(supplierState);
-  // $stateProvider.state(dossier_historyState);
+  $stateProvider.state(supplier_dossierState);
   $stateProvider.state(supplier_updateState);
+  $stateProvider.state(supplier_action_planState);
+  $stateProvider.state(not_foundState);
 
 };

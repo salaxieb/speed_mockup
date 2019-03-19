@@ -62,6 +62,15 @@ header{
   min-width: 80px;
 }
 
+nav a {
+  color: black;
+}
+
+nav a:hover {
+  color: black;
+  text-decoration: none;
+}
+
 /* Header content end */
 
 /*main content start */

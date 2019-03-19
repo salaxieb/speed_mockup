@@ -1,8 +1,7 @@
 
 <div class="container main-container">
-  {{ctrl.success}}
   <div class="row main-top-content mt-4">
-    <div class="col-md-6 justify-content-left">
+    <div class="col-md-12 justify-content-left">
       <!-- <div class="mt-3 small-font">
         <a href="main.html"> <i class="fa fa-arrow-left"></i> Back </a>
       </div>
@@ -31,11 +30,11 @@
         <div class="row">
             <div class="col-md-6 pl-1 pr-1">
               <div class="p-1 d-flex title"> Comment: </div>
-              <textarea class="p-1 container content comment" type="textarea" ng-model="ctrl.supplier.comment" placeholder="Bad supplier!"></textarea >
+              <textarea class="p-1 container content comment" type="textarea" ng-model="ctrl.supplier.comment" placeholder="Put your comment here"></textarea >
             </div>
         <div class="col-md-6 pl-1 pr-1">
           <div class="p-1 d-flex title"> Hidden from supplier comment: </div>
-          <textarea class="p-1 container content comment" type="textarea" ng-model="ctrl.supplier.hidden_comment" placeholder="Put your comment here"></textarea >
+          <textarea class="p-1 container content comment" type="textarea" ng-model="ctrl.supplier.hidden_comment" placeholder="Put your hidden comment here"></textarea >
         </div>
         <button type="button" class="mt-1 m-1 p-1 btn btn-primary btn-sm" ng-click="ctrl.save_all()"> Save </button>
     </form>
@@ -47,10 +46,10 @@
     <div class="row">
       <div class="d-inline-flex flex-column pl-1 pr-1">
         <div class="p-1 d-flex title"> Code: </div>
-        <div class="p-1 container content" ng-repeat="code in ctrl.clients">
+        <div class="p-1 container content" ng-repeat="code in ctrl.clients track by $index">
           <div class="p-1 d-flex value"> {{ctrl.supplier.ipprfl_codes[0]}} </div>
         </div>
-        <input class="p-1 d-flex value inputs-updates-row">
+        <input class="p-1 d-flex value inputs-updates-row" ng-model="ipprfl_code_candidate">
 
       </div>
       <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
@@ -58,7 +57,7 @@
         <div class="p-1 container content" ng_repeat="client in ctrl.clients">
           <div class="p-1 d-flex value"> {{client.code}} </div>
         </div>
-        <input class="p-1 d-flex value inputs-updates-row">
+        <input class="p-1 d-flex value inputs-updates-row" ng-model="code_candidate">
       </div>
       <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
         <div class="p-1 d-flex title"> Projects: </div>
@@ -70,232 +69,121 @@
       <div class="d-inline-flex flex-column m-0 pl-1 pr-1">
         <div class="p-1 d-flex title" >Edit</div>
           <div class="p-0 container" ng_repeat="client in ctrl.clients track by $index">
-            <button type="button" class="btn btn btn-outline-danger btn-sm row-del-save-button"> Del </button>
+            <button type="button" class="btn btn btn-outline-danger btn-sm row-del-save-button" ng-click="ctrl.delFromArray(ctrl.clients, $index)"> Del </button>
           </div>
-          <button type="button" class="btn btn-primary btn-sm row-del-save-button"> Save </button>
+          <button type="button" class="btn btn-primary btn-sm row-del-save-button" ng-click="ctrl.pushToArray(ctrl.clients, {'code':code_candidate}); ctrl.pushToArray(ctrl.supplier.ipprfl_codes, ipprfl_code_candidate);"> Add </button>
         </div>
       </div>
   </div>
+  <div class="col-12 p-0 d-flex justify-content-end">
+        <button type="button" class="btn btn-primary value btn-sm col-1" ng-click="ctrl.save_all()"> Save </button>
+    </div>
 
       <div class="container-fluid p-3 m-0 mt-3 main-content">
       <div class="row">
         <div class="d-inline-flex flex-column pl-1 pr-1">
           <div class="p-1 d-flex title"> Commodity: </div>
-          <div class="p-1 container content" ng-repeat="commodity in ctrl.supplier.commodities_buyers">
+          <div class="p-1 container content" ng-repeat="commodity in ctrl.supplier.commodities_buyers track by $index">
             <div class="p-1 d-flex value"> {{commodity.commodity}} </div>
           </div>
-          <input class="p-1 d-flex value inputs-updates-row">
+          <input class="p-1 d-flex value inputs-updates-row" ng-model="commodity_candidate">
         </div>
         <div class="d-inline-flex flex-column pl-1 pr-1">
           <div class="p-1 d-flex title"> Buyer: </div>
           <div class="p-1 container content" ng-repeat="buyer in ctrl.supplier.commodities_buyers">
             <div class="p-1 d-flex value"> {{buyer.buyer.name}} {{buyer.buyer.email}}</div>
           </div>
-          <input class="p-1 d-flex value inputs-updates-row">
+          <input class="p-1 d-flex value inputs-updates-row" ng-model="buyer_candidate">
         </div>
         <div class="d-inline-flex flex-column pl-1 pr-1">
           <div class="p-1 d-flex title"> Edit: </div>
           <div class="p-0 container" ng_repeat="buyer in ctrl.supplier.commodities_buyers">
-            <button type="button" class="btn btn btn-outline-danger btn-sm row-del-save-button"> Del </button>
+            <button type="button" class="btn btn btn-outline-danger btn-sm row-del-save-button" ng-click="ctrl.delFromArray(ctrl.supplier.commodities_buyers, $index)"> Del </button>
           </div>
-          <button type="button" class="btn btn-primary btn-sm row-del-save-button"> Save </button>
+          <button type="button" class="btn btn-primary btn-sm row-del-save-button" ng-click="ctrl.pushToArray(ctrl.supplier.commodities_buyers, {'commodity':commodity_candidate, 'buyer':{'name':buyer_candidate}})"> Add </button>
         </div>
       </div>
     </div>
-
-
-    <div class="container-fluid m-0 mt-3 inputs-row main-content">
-      <div class="row p-1">
-        <div class="d-flex px-1 m-0 mt-1 container">
-          <div class="p-1 d-flex title col-5"> Commodity: </div>
-          <div class="p-1 d-flex title col-7"> Buyer: </div>
-        </div>
-
-        <div class="d-flex px-1 m-0 mt-1 container content">
-          <div class="p-1 d-flex value col-5"> Stamping </div>
-          <div class="p-1 d-flex value col-6"> Some buyer contact smbuyer@renault.com +7 963 979 0000 </div>
-          <button type="button" class="btn btn btn-outline-danger btn-sm col-1"> Del </button>
-        </div>
-
-        <div class="d-flex px-1 m-0 mt-1 container content">
-          <div class="p-1 d-flex value col-5"> Second commodity </div>
-          <div class="p-1 d-flex value col-6"> Some buyer contact smbuyer@renault.com +7 963 979 0000 </div>
-          <button type="button" class="btn btn btn-outline-danger btn-sm col-1"> Del </button>
-        </div>
-        <div class="d-flex px-1 m-0 mt-1 container content">
-          <input class="p-1 d-flex value col-5">
-          <select class="p-1 d-flex value col-6">
-            <option selected></option>
-            <option>Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</option>
-            <option>Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</option>
-          </select>
-          <button type="button" class="btn btn-primary btn-sm col-1" ng-click="ctrl.save_all()"> Save </button>
-        </div>
-      </div>
+    <div class="col-12 p-0 d-flex justify-content-end">
+        <button type="button" class="btn btn-primary value btn-sm col-1" ng-click="ctrl.save_all()"> Save </button>
     </div>
+
 
     <div class="container-fluid p-3 m-0 mt-3 inputs-row main-content">
       <div class="row">
         <div class="col-md row px-1">
           <div class="pl-3 col-12 title"> Client contacts: </div>
-          <div class="pl-3 col-3 value text-right"><b>TGP:</b></div>
-          <div class="col-7 value"> Name&nbsp;Surname name.surname@renault.com</div>
-          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
+          <div class="row mx-2" ng-repeat="contact in ctrl.supplier.supplier_contacts track by $index">
+            <div class="pl-4 col-4 value text-right"><b>{{contact.position}}:</b></div>
+            <div class="col-6 value"> {{contact.name}} <a href="mailto:{{contact.email}}?Subject={{ctrl.supplier.brand}}">{{contact.email}}</a></div>
+            <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12" ng-click="ctrl.delFromArray(ctrl.supplier.supplier_contacts, $index)"> Del </button> </div>
+          </div>
 
-          <div class="pl-3 col-3 value text-right"><b>SRMT Pilot:</b></div>
-          <div class="col-7 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
-          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
-
-          <div class="pl-3 col-3 value text-right"><b>TGP:</b></div>
-          <div class="col-7 value"> Name&nbsp;Surname <a href="mailto:name.surname@renault.com?Subject=Alpha%20automotive%20lightning"> name.surname@renault.com </a> +7&nbsp;963&nbsp;979&nbsp;0000</div>
-          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
-
-          <div class="pl-3 col-3 value text-right"><b>SSD:</b></div>
-          <div class="col-7 value "> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
-          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
-
-          <div class="pl-3 col-3 value text-right"><b>TGP:</b></div>
-          <div class="col-7 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
-          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
-
-          <div class="pl-3 col-3 value text-right"><b>Buyer:</b></div>
-          <div class="col-7 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
-          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
-
-          <div class="pl-3 col-3 value text-right"><b>PPM:</b></div>
-          <div class="col-7 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
-          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
-
-          <div class="pl-3 col-3 value text-right"><b>SRMT Pilot:</b></div>
-          <div class="col-7 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
-          <div class="col-2 p-0 py-1"> <button type="button" class="btn btn btn-outline-danger btn-sm col-12"> Del </button> </div>
-
-          <div class="pl-3 col-3 value text-right"><input class="col-12 p-0 py-1 value text-right"></div>
-          <div class="col-7 value"><input class="col-12 p-0 py-1 value"></div>
-          <button type="button" class="btn btn-primary value btn-sm col-2 p-0 py-1" ng-click="ctrl.save_all()"> Save </button>
+          <div class="pl-3 col-4 value text-right"><input class="col-12 p-0 py-1 value text-right" ng-model="position_candidate"></div>
+          <div class="col-6 value"><input class="col-12 p-0 py-1 value" ng-model="name_candidate"></div>
+          <button type="button" class="btn btn-primary value btn-sm col-2 p-0 py-1" ng-click="ctrl.pushToArray(ctrl.supplier.supplier_contacts, {'position': position_candidate, 'name': name_candidate})"> Add </button>
         </div>
+
+
         <div class="col-md pl-1 pr-1">
           <div class="pl-3 col-12 title">Supplier contacts: </div>
-          <div class="p-1">
 
-            <div class="m-1 container">
-              <div class="row">
-                <div class="pl-3 col-3 value text-right">
-                  <b>KAM:</b>
-                </div>
-                <div class="col-7 value">
-                  Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000
-                </div>
-                <div class="col-2 p-0 py-1">
-                  <button type="button" class="btn btn btn-outline-danger btn-sm col-12">Del</button>
-                </div>
-              </div>
+          <div class="p-1 row mx-2">
+            <div class="row mx-2" ng-repeat="contact in ctrl.supplier.supplier_client_contacts track by $index">
+              <div class="pl-4 col-4 value text-right"><b>{{contact.position}}:</b></div>
+              <div class="col-6 value px-2"> {{contact.name}} <a href="mailto:{{contact.email}}?Subject={{ctrl.supplier.brand}}">{{contact.email}}</a></div>
+              <div class="col-2 p-0 py-1"><button type="button" class="btn btn btn-outline-danger btn-sm col-12" ng-click="ctrl.delFromArray(ctrl.supplier.supplier_client_contacts, $index)">Del</button></div>
             </div>
 
-            <div class="m-1 container">
-              <div class="row">
-                <div class="pl-3 col-3 value text-right">
-                  <b>Some Plant general manager:</b>
-                </div>
-                <div class="col-7 value">
-                  Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000
-                </div>
-                <div class="col-2 p-0 py-1">
-                  <button type="button" class="btn btn btn-outline-danger btn-sm col-12">Del</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="m-1 container">
-              <div class="row">
-                <div class="pl-3 col-3 value text-right">
-                  <b>KAM:</b>
-                </div>
-                <div class="col-7 value">
-                  Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000
-                </div>
-                <div class="col-2 p-0 py-1">
-                  <button type="button" class="btn btn btn-outline-danger btn-sm col-12">Del</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="m-1 container">
-              <div class="row">
-                <div class="pl-3 col-3 value text-right">
-                  <b>Logistics:</b>
-                </div>
-                <div class="col-7 value">
-                  Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000
-                </div>
-                <div class="col-2 p-0 py-1">
-                  <button type="button" class="btn btn btn-outline-danger btn-sm col-12">Del</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="m-1 container">
-              <div class="row">
-                <div class="pl-3 col-3 value text-right">
-                  <input class="col-12 p-0 py-1 value text-right">
-                </div>
-                <div class="col-7 value">
-                  <input class="col-12 p-0 py-1 value">
-                </div>
-                <div class="col-2 p-0">
-                  <button type="button" class="btn btn-primary value btn-sm col-12" ng-click="ctrl.save_all()"> Save </button>
-                  <div class="alert alert-success mt-2" ng-if='ctrl.success'>
-                    <strong>Success!</strong> Data successfully saved!
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- <div class="pl-3 col-3 value text-right"><b>Some Plant general manager:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
-            <div class="pl-3 col-3 value text-right"><b>Logistics:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div>
-            <div class="pl-3 col-3 value text-right"><b>Commercial:</b></div> <div class="col-9 value"> Name&nbsp;Surname name.surname@renault.com +7&nbsp;963&nbsp;979&nbsp;0000</div> -->
+            <div class="pl-3  col-4 value text-right"><input class="col-12 p-0 py-1 value text-right" ng-model="client_position_candidate"></div>
+            <div class="col-6 value"><input class="col-12 p-0 py-1 value" ng-model="client_name_candidate"></div>
+            <button type="button" class="btn btn-primary value btn-sm col-2 p-0 py-1" ng-click="ctrl.pushToArray(ctrl.supplier.supplier_client_contacts, {'position': client_position_candidate, 'name': client_name_candidate})"> Add </button>
           </div>
         </div>
       </div>
     </div>
 
+    <div class="col-12 p-0 d-flex justify-content-end">
+        <button type="button" class="btn btn-primary value btn-sm col-1" ng-click="ctrl.save_all()"> Save </button>
+    </div>
+
     <div class="container-fluid p-3 m-0 mt-3 inputs-row main-content">
       <div class="flex-row p-2 row">
         <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Environment risks score </div>
-        <div class="p-1 rating-content d-flex align-items-center justify-content-center environment">8</div>
-        <div class="p-1 d-flex align-items-center justify-content-center">Average: 4.3 - 30-th</div>
+        <div class="p-1 rating-content d-flex align-items-center justify-content-center environment">{{ctrl.supplier.environment_rating}}</div>
+        <div class="p-1 d-flex align-items-center justify-content-center">Average: ?- ?-th</div>
       </div>
 
       <div class="flex-row p-2 row">
         <div class="p-1 value"><b>Start of deliveries: </b></div>
-        <input class="p-1 value content">
+        <input class="p-1 value content" ng-model="ctrl.supplier.start_of_deliveries">
 
         <div class="p-1 value"><b>Alliance supplier for:</b></div>
-        <div class="p-1 value content bad-value">3Y 4M</div>
+        <div class="p-1 value content value">{{ctrl.supplier.supplier_for}}</div>
       </div>
       <div class="flex-row p-2 row">
         <div class="p-1 value"><b>Low cost country?:</b></div>
-        <div class="p-1 d-flex justify-content-center align-items-center value content bad-value check-square check"><i class="fa fa-check fa-lg"></i></div>
+        <div id="low_cost_country" class="p-1 value content check-square d-flex justify-content-center align-items-center" ng-class="{{ctrl.supplier.overall.low_cost_country}} ? 'true':'false'" ng-click="ctrl.changeValue('ctrl.supplier.overall.low_cost_country','low_cost_country')"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
       </div>
       <div class="flex-row p-2 row">
         <div class="p-1 value"><b>Imposed suppliers number:</b></div>
-        <input class="p-1 value content">
+        <input class="p-1 value content" ng-model="ctrl.supplier.overall.imposed_suppliers_number">
       </div>
       <div class="flex-row p-2 row">
         <div class="p-1 value"><b>Maximum client lead-time:</b></div>
-        <div class="p-1 value content">4 weeks</div>
+        <div class="p-1 value content">{{ctrl.supplier.maximum_lead_time}}</div>
       </div>
       <div class="flex-row p-2 row">
         <div class="p-1 value"><b>Supplies to another country:</b></div>
-        <div class="p-1 d-flex justify-content-center align-items-center value content bad-value check-square"><i class="fa fa-check fa-lg"></i></div>
+        <div id="supplies_to_another_country" class="p-1 value content check-square d-flex justify-content-center align-items-center" ng-class="{{ctrl.supplier.overall.supplies_to_another_country}} ? 'true':'false'" ng-click="ctrl.changeValue('ctrl.supplier.overall.supplies_to_another_country','supplies_to_another_country')"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
       </div>
       <div class="flex-row p-2 row">
         <div class="p-1 value"><b>Overseas supplies:</b></div>
-        <div class="p-1 d-flex justify-content-center align-items-center value content good-value check-square"><i class="fa fa-check fa-lg"></i></div>
+        <div id="overseas_supplies" class="p-1 value content check-square d-flex justify-content-center align-items-center" ng-class="{{ctrl.supplier.overall.overseas_supplies}} ? 'true':'false'" ng-click="ctrl.changeValue('ctrl.supplier.overall.overseas_supplies','overseas_supplies')"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
       </div>
       <div class="flex-row p-2 row">
         <div class="p-1 value"><b>Action plan size:</b></div>
-        <div class="p-1 value content bad-value">4</div>
+        <div class="p-1 value content bad-value">{{ctrl.supplier.action_plan_size}}</div>
       </div>
     </div>
     <div class="col-12 p-0 d-flex justify-content-end">
@@ -520,7 +408,7 @@
   </div>
 
     <div class="col-12 p-2 mt-4 d-flex">
-      <button ui-sref="supplier"class="p-1 edit-button d-flex align-items-center justify-content-center">
+      <button ui-sref="supplier" class="p-1 edit-button d-flex align-items-center justify-content-center" ng-click="ctrl.viewChange()">
         Back to view
       </button>
     </div>

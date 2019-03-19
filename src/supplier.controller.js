@@ -29,6 +29,38 @@ function SupplierService($http, $stateParams){
 		return maximum_lead_time;
 	}
 
+	service.colorPageRectangles = function(supplier) {
+		// console.log(document.getElementsByClassName("environment"))
+		// console.log(ColorBasedOnRating(supplier.environment_rating))
+		supplier.environment_rating_color = ColorBasedOnRating(supplier.environment_rating)
+		if (document.getElementsByClassName("environment").length>0) {
+			for (i = 0; i < document.getElementsByClassName("environment").length; i++) {
+					document.getElementsByClassName("environment")[i].style.backgroundColor = supplier.environment_rating_color
+			}
+		}
+
+
+		supplier.logistics_rating_color = ColorBasedOnRating(supplier.logistics_rating)
+		if (document.getElementsByClassName("logistics").length > 0){
+			for (i = 0; i < document.getElementsByClassName("logistics").length; i++) {
+					document.getElementsByClassName("logistics")[i].style.backgroundColor = supplier.logistics_rating_color
+				}
+		}
+
+		supplier.capacity_rating_color = ColorBasedOnRating(supplier.capacity_rating);
+		if (document.getElementsByClassName("capacity").length>0) {
+			for (i = 0; i < document.getElementsByClassName("capacity").length; i++) {
+					document.getElementsByClassName("capacity")[i].style.backgroundColor = supplier.capacity_rating_color
+			}
+		}
+
+		supplier.product_rating_color = "rgb(100,100,100)";
+		supplier.quality_rating_color = "rgb(100,100,100)";
+
+		return supplier
+
+	}
+
 	service.giveRatingForSupplier = function (supplier) {
 		// console.log("supllasdfasdfas", supplier)
 		date =  new Date(supplier.overall.start_of_deliveries);
@@ -46,22 +78,17 @@ function SupplierService($http, $stateParams){
 		experince_rating = years>1?1.3*Math.log(years):0
 
 		supplier.environment_rating = Math.round((experince_rating + Number(supplier.overall.low_cost_country?0:1) +
-		Number(supplier.maximum_lead_time<"3"?0:1) + Number(supplier.supplies_to_another_country?0:1) +
-		Number(supplier.overseas_supplies?0:2) + Number(supplier.action_plan_size?0:1))*10)/10
-		// console.log("experince_rating", experince_rating)
-		// console.log(Number(supplier.overall.low_cost_country?0:1))
-		// console.log(Number(supplier.maximum_lead_time<"3"?0:1))
-		// console.log(Number(supplier.supplies_to_another_country?0:1))
-		// console.log(Number(supplier.overseas_supplies?0:2))
-		// console.log(Number(supplier.action_plan_size?0:1))
-		// console.log("environment risk lvl",supplier.environment_rating)
+		Number(supplier.maximum_lead_time<3?0:1) + Number(supplier.overall.supplies_to_another_country?0:1) +
+		Number(supplier.overall.overseas_supplies?0:2) + Number(supplier.action_plan_size?0:1))*10)/10
+		console.log("experince_rating", experince_rating)
+		console.log(Number(supplier.overall.low_cost_country?0:1))
+		console.log(Number(supplier.maximum_lead_time<3?0:1))
+		console.log(Number(supplier.overall.supplies_to_another_country?0:1))
+		console.log(Number(supplier.overall.overseas_supplies?0:2))
+		console.log(Number(supplier.action_plan_size?0:1))
+		console.log("environment risk lvl",supplier.environment_rating)
 
-		supplier.environment_rating_color = ColorBasedOnRating(supplier.environment_rating)
-		if (document.getElementsByClassName("environment").length>0) {
-			for (i = 0; i < document.getElementsByClassName("environment").length; i++) {
-					document.getElementsByClassName("environment")[i].style.backgroundColor = supplier.environment_rating_color
-			}
-		}
+		/// coloring moved to extra service
 		///////calculating total weights without client///////
 		total_actives = 0;
 		total_delays = 0;
@@ -92,12 +119,7 @@ function SupplierService($http, $stateParams){
 		Number(delays_rating) + Number(mmog_rating) +
 		Number(supplier.logistics.assce_audit_result>3?3:0) + Number(supplier.logistics.aplf_audit_result>80?1:0))*10)/10;
 
-		supplier.logistics_rating_color = ColorBasedOnRating(supplier.logistics_rating)
-		if (document.getElementsByClassName("logistics").length > 0){
-			for (i = 0; i < document.getElementsByClassName("logistics").length; i++) {
-					document.getElementsByClassName("logistics")[i].style.backgroundColor = supplier.logistics_rating_color
-				}
-		}
+		
 
 		//////calculation capacity rating ////////
 		if (supplier.capacity.capacity_files) {
@@ -128,12 +150,7 @@ function SupplierService($http, $stateParams){
 			supplier.capacity_rating = 5
 		}
 		
-		supplier.capacity_rating_color = ColorBasedOnRating(supplier.capacity_rating);
-		if (document.getElementsByClassName("capacity").length>0) {
-			for (i = 0; i < document.getElementsByClassName("capacity").length; i++) {
-					document.getElementsByClassName("capacity")[i].style.backgroundColor = supplier.capacity_rating_color
-			}
-		}
+		
 
 		//////calculation rpoduct rating ////////
 		supplier.product_rating = 5
@@ -146,6 +163,8 @@ function SupplierService($http, $stateParams){
 		//////calculation overall rating ////////
 		supplier.overall_rating = Math.round((supplier.environment_rating * supplier.logistics_rating *
 			supplier.capacity_rating * supplier.product_rating * supplier.quality_rating)*1)/10;
+
+		supplier = service.colorPageRectangles(supplier)
 
 		return supplier;
 
@@ -271,6 +290,9 @@ function SupplierController($rootScope, $state, supplier, SuppliersService, Supp
 
 	///////action plan size///////
 	ctrl.supplier.action_plan_size = 0
+	if (ctrl.supplier.action_plan) {
+		ctrl.supplier.action_plan_size = ctrl.supplier.action_plan.length
+	}
 
 	//////parsing date for mmog//////
 	date =  new Date(ctrl.supplier.logistics.mmog_le_sa_date);
@@ -284,16 +306,22 @@ function SupplierController($rootScope, $state, supplier, SuppliersService, Supp
 
 	ctrl.supplier = SupplierService.giveRatingForSupplier(ctrl.supplier)
 
+	ctrl.viewChange = function (){
+		$timeout(function(){
+			SupplierService.colorPageRectangles(ctrl.supplier)}
+			, 500);
+	}
+
 	/////////saving data from edit page////
 	ctrl.save_all = function () {
 		element = document.getElementsByClassName("main-container")[1];
 		element.style.backgroundColor = "rgb(230,230,230)";
 
-		console.log("saving_started")
+		// console.log("saving_started")
 		supplier = ctrl.supplier
 
 		console.log("AAAAA удаляем данные поставщика АААААА")
-  		delete supplier.capacity
+  		// delete supplier.capacity
   		delete supplier.news
 
 
@@ -317,6 +345,45 @@ function SupplierController($rootScope, $state, supplier, SuppliersService, Supp
 				}, 800)
 
 			})
+	}
+
+
+	ctrl.pushToArray = function(array, data) {
+		// console.log("array", array)
+		console.log("data", data)
+		if (data!=undefined){
+			array.push(data)
+		}
+	}
+
+	ctrl.delFromArray = function(array, index) {
+		// console.log("array", array)
+		// console.log("index", index)
+		array.splice(index, 1)
+	}
+
+	ctrl.changeValue = function(variable, id) {
+		classes = document.getElementById(id).className.split(" ")
+		value = eval(variable)
+		for (var i = 0; i < classes.length; i++) {
+			if (classes[i] == eval(variable).toString()) {
+				classes[i] = eval("!"+variable)
+			}
+		}
+		eval(variable + "= !" + variable)
+		document.getElementById(id).className = classes.join(" ")
+		ctrl.supplier = SupplierService.giveRatingForSupplier(ctrl.supplier)
+	}
+
+	Date.prototype.getWeek = function() {
+	  var onejan = new Date(this.getFullYear(),0,1);
+	  return Math.ceil((((this - onejan) / 86400000) + onejan.getDay()+1)/7);
+	}
+
+	ctrl.parseDate = function(date) {
+		date =  new Date(date);
+		parsed_date = "W" + date.getWeek() + " " + date.getFullYear();
+		return parsed_date
 	}
 
 	////////////
