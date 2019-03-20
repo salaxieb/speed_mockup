@@ -67,7 +67,7 @@
           {{ctrl.supplier.environment_rating}}
         </div>
         <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
-          Average: ? - ?-th
+          Average: 6 12-th
         </div>
       </div>
       <div class="col p-0 d-flex flex-column align-items-center">
@@ -81,7 +81,7 @@
           {{ctrl.supplier.logistics_rating}}
         </div>
         <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
-          Average: ? - ?-th
+          Average: 2.3 23-rd
         </div>
       </div>
       <div class="col p-0 d-flex flex-column align-items-center">
@@ -95,7 +95,7 @@
           {{ctrl.supplier.capacity_rating}}
         </div>
         <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
-          Average: ? - ?-th
+          Average: 5.6 6th
         </div>
       </div>
       <div class="col p-0 d-flex flex-column align-items-center">
@@ -109,7 +109,7 @@
           {{ctrl.supplier.product_rating}}
         </div>
         <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
-          Average: ? - ?-th
+          Average: 5 1st
         </div>
       </div>
       <div class="col p-0 d-flex flex-column align-items-center">
@@ -123,7 +123,7 @@
           {{ctrl.supplier.quality_rating}}
         </div>
         <div class="p-1 rating-comment d-flex align-items-center justify-content-center">
-          Average: ? - ?-th
+          Average: 5 1-st
         </div>
       </div>
       <div class="p-2 pt-2 d-flex overall-title align-items-center">
@@ -138,7 +138,7 @@
         </div>
       </div>
       <div class="p-1 overall-comment d-flex align-items-center justify-content-center">
-        Average: ? - ?-th
+        Average: 150 - 67-th
       </div>
     </div>
   </div>
@@ -151,13 +151,13 @@
     <div class="container-fluid p-3 m-0 mt-3 main-content">
       <div class="row">
         <div class="col-md-6 pl-1 pr-1">
-          <div class="p-1 d-flex title"> Comment: </div>
+          <div class="p-1 d-flex title"> Supplier comment: </div>
           <div class="p-1 container content comment">
             <div class="p-1 d-flex value"> {{ctrl.supplier.comment}} </div>
         </div>
         </div>
         <div class="col-md-6 pl-1 pr-1">
-          <div class="p-1 d-flex title"> Hidden from supplier comment: </div>
+          <div class="p-1 d-flex title"> Client comment: </div>
           <div class="p-1 container content comment">
             <div class="p-1 d-flex value"> {{ctrl.supplier.hidden_comment}} </div>
           </div>
@@ -229,7 +229,7 @@
         <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Environment risks score </div>
         <div class="p-1 rating-content d-flex align-items-center justify-content-center environment">
         {{ctrl.supplier.environment_rating}}</div>
-        <div class="p-1 d-flex align-items-center justify-content-center">Average: ? - ?-th</div>
+        <div class="p-1 d-flex align-items-center justify-content-center">Average: 6 - 12-th</div>
       </div>
 
       <div class="flex-row p-2 row">
@@ -260,7 +260,7 @@
         <div class="p-1 value content check-square d-flex justify-content-center align-items-center" ng-class="{{ctrl.supplier.overall.overseas_supplies}} ? 'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
       </div>
       <div class="flex-row p-2 row">
-        <div class="p-1 value"><b>Action plan size:</b></div>
+        <div class="p-1 value"><b>Open requests:</b></div>
         <div class="p-1 value content" ng-class="ctrl.supplier.action_plan_size>0?'bad-value':'good-value'">{{ctrl.supplier.action_plan_size}}</div>
       </div>
     </div>
@@ -269,7 +269,7 @@
       <div class="flex-row p-2 row">
         <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Logistics risks score </div>
         <div class="p-1 rating-content d-flex align-items-center justify-content-center logistics">{{ctrl.supplier.logistics_rating}}</div>
-        <div class="p-1 d-flex align-items-center justify-content-center">Average: ? - ?-th</div>
+        <div class="p-1 d-flex align-items-center justify-content-center">Average: 2.3 - 23-rd</div>
       </div>
 
 
@@ -283,19 +283,19 @@
         <div class="p-1 col-4 col-md-2">
           <div class="p-1 title">Lead-time: </div>
           <div class="p-1 value content" ng-repeat="client in ctrl.clients">
-            <div class="p-1"> {{client.lead_time}} ?D </div>
+            <div class="p-1"> {{client.lead_time}} 3D </div>
           </div>
         </div>
         <div class="p-1 col-8 col-md-4">
           <div class="p-1 title">Flow weight: </div>
           <div class="p-1 value content" ng-repeat="client in ctrl.clients">
-            <div class="p-1"><b> {{client.this_supplier_actives}} </b> actives {{client.weight_in_actives}}% ?-th from {{client.suppliers_count}} </div>
+            <div class="p-1"><b> {{client.this_supplier_actives}} </b> actives {{client.weight_in_actives}}% 5-th from {{client.suppliers_count}} </div>
           </div>
         </div>
         <div class="p-1 col-6 col-md-3">
           <div class="p-1 title">Weight in delays: </div>
           <div class="p-1 value content" ng-repeat="client in ctrl.clients">
-            <div class="p-1"><b> {{client.this_supplier_delays}} </b> delays - {{client.weight_in_delays}}% ?-th </div>
+            <div class="p-1"><b> {{client.this_supplier_delays}} </b> delays - {{client.weight_in_delays}}% 5-th </div>
           </div>
         </div>
       </div>
@@ -324,7 +324,7 @@
         <div class="p-1 value"><a href="#"> ASSCE audit report 24.05.2016.pdf</a> </div>
       </div>
       <div class="flex-row pl-3 value-comment row">
-        Average ASSCE audit result: ?
+        Average ASSCE audit result: 3.1
       </div>
 
       <div class="flex-row p-2 row">
@@ -343,7 +343,7 @@
         <div class="p-1 value"><a href="#"> APLF audit report 10.07.2018.pdf</a> </div>
       </div>
       <div class="flex-row pl-3 value-comment row">
-        Average APLF audit result: ?
+        Average APLF audit result: 97%
       </div>
 
       <div class="flex-row p-2 row">
@@ -421,7 +421,7 @@
       <div class="flex-row p-2 row">
         <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Capacity risks score </div>
         <div class="p-1 rating-content d-flex align-items-center justify-content-center capacity">{{ctrl.supplier.capacity_rating}}</div>
-        <div class="p-1 d-flex align-items-center justify-content-center">Average: ? - ?-th</div>
+        <div class="p-1 d-flex align-items-center justify-content-center">Average: 5.6 - 35-th</div>
       </div>
       
       <div class="flex-row pl-2 pr-2 pb-0 mb-0 row capacity-title-row">
@@ -480,7 +480,7 @@
       <div class="flex-row p-2 row">
         <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Product risks score </div>
         <div class="p-1 rating-content d-flex align-items-center justify-content-center product">{{ctrl.supplier.product_rating}}</div>
-        <div class="p-1 d-flex align-items-center justify-content-center">Average: ? - ?-th</div>
+        <div class="p-1 d-flex align-items-center justify-content-center">Average: 5 - 1-st</div>
       </div>
 
       <div class="flex-row pl-2 pr-2 pb-0 mb-0 row product-title-row">

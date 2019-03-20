@@ -68,22 +68,27 @@ function ClientService($http, $stateParams, SupplierService, SuppliersService, $
 	   		total_product += client.suppliers[iter].product_rating;
 	   		total_quality += client.suppliers[iter].quality_rating;
 	   	}
-	   	client.environment_rating = Math.round((total_environment/client.suppliers.length)*10)/10;
-	   	client.logistics_rating = Math.round((total_logistics/client.suppliers.length)*10)/10;
-	   	client.capacity_rating = Math.round((total_capacity/client.suppliers.length)*10)/10;
-	   	client.product_rating = Math.round((total_product/client.suppliers.length)*10)/10;
-	   	client.quality_rating = Math.round((total_quality/client.suppliers.length)*10)/10;
+	   	client.environment_rating = 10
+	   	client.logistics_rating = 5
+	   	client.capacity_rating = 1
+	   	client.product_rating = 5
+	   	client.quality_rating = 5
+
+	   	if (client.suppliers.length>0) {
+		   	client.environment_rating = Math.round((total_environment/client.suppliers.length)*10)/10;
+		   	client.logistics_rating = Math.round((total_logistics/client.suppliers.length)*10)/10;
+		   	client.capacity_rating = Math.round((total_capacity/client.suppliers.length)*10)/10;
+		   	client.product_rating = Math.round((total_product/client.suppliers.length)*10)/10;
+		   	client.quality_rating = Math.round((total_quality/client.suppliers.length)*10)/10;
+		 }
+
 	   	client.overall_rating = client.environment_rating * client.logistics_rating *
 	   	client.capacity_rating * client.product_rating * client.quality_rating;
 
 	   	client.overall_rating = Math.round((client.overall_rating)*1)/10;
 
 	   	client.environment_rating_color = ColorBasedOnRating(client.environment_rating);
-
-
 	   	client.logistics_rating_color = ColorBasedOnRating(client.logistics_rating);
-
-
 	   	client.capacity_rating_color = ColorBasedOnRating(client.capacity_rating);
 
 		return client
