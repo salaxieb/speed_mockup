@@ -13,11 +13,11 @@ function SupplierService($http, $stateParams){
 		})
 		.then(
 		function successful(response){
-			console.log("reponse.data in supplier service", response.data)
+			// console.log("reponse.data in supplier service", response.data)
 			return response.data
 		},
 		function error(response){
-			console.log("error", response)
+			// console.log("error", response)
 		});
 	}
 
@@ -54,8 +54,19 @@ function SupplierService($http, $stateParams){
 			}
 		}
 
-		supplier.product_rating_color = "rgb(100,100,100)";
-		supplier.quality_rating_color = "rgb(100,100,100)";
+		supplier.product_rating_color = ColorBasedOnRating(supplier.product_rating);
+		if (document.getElementsByClassName("product").length>0) {
+			for (i = 0; i < document.getElementsByClassName("product").length; i++) {
+					document.getElementsByClassName("product")[i].style.backgroundColor = supplier.product_rating_color
+			}
+		};
+
+		supplier.quality_rating_color = ColorBasedOnRating(supplier.quality_rating);
+		if (document.getElementsByClassName("quality").length>0) {
+			for (i = 0; i < document.getElementsByClassName("quality").length; i++) {
+					document.getElementsByClassName("quality")[i].style.backgroundColor = supplier.quality_rating_color
+			}
+		};
 
 		return supplier
 
@@ -80,15 +91,15 @@ function SupplierService($http, $stateParams){
 		supplier.environment_rating = Math.round((experince_rating + Number(supplier.overall.low_cost_country?0:1) +
 		Number(supplier.maximum_lead_time<3?0:1) + Number(supplier.overall.supplies_to_another_country?0:1) +
 		Number(supplier.overall.overseas_supplies?0:2) + Number(supplier.action_plan_size?0:1))*10)/10
-		console.log("experince_rating", experince_rating)
-		console.log(Number(supplier.overall.low_cost_country?0:1))
-		console.log(Number(supplier.maximum_lead_time<3?0:1))
-		console.log(Number(supplier.overall.supplies_to_another_country?0:1))
-		console.log(Number(supplier.overall.overseas_supplies?0:2))
-		console.log(Number(supplier.action_plan_size?0:1))
-		console.log("environment risk lvl",supplier.environment_rating)
+		// console.log("experince_rating", experince_rating)
+		// console.log(Number(supplier.overall.low_cost_country?0:1))
+		// console.log(Number(supplier.maximum_lead_time<3?0:1))
+		// console.log(Number(supplier.overall.supplies_to_another_country?0:1))
+		// console.log(Number(supplier.overall.overseas_supplies?0:2))
+		// console.log(Number(supplier.action_plan_size?0:1))
+		// console.log("environment risk lvl",supplier.environment_rating)
 
-		/// coloring moved to extra service
+		
 		///////calculating total weights without client///////
 		total_actives = 0;
 		total_delays = 0;
@@ -143,7 +154,7 @@ function SupplierService($http, $stateParams){
 
 			opposit_risk = Math.round(Math.pow(opposit_risk, 1/10)*10)/10;
 			supplier.capacity_rating = 10-opposit_risk;
-			supplier.capacity_rating = Math.round((supplier.capacity_rating<0?0:supplier.capacity_rating)*10)/10;
+			supplier.capacity_rating = Math.round((supplier.capacity_rating<1?1:supplier.capacity_rating)*10)/10;
 			// console.log("final risk level", supplier.capacity_rating);
 
 		} else {
@@ -153,17 +164,72 @@ function SupplierService($http, $stateParams){
 		
 
 		//////calculation rpoduct rating ////////
-		supplier.product_rating = 5
-		supplier.product_rating_color = "rgb(100,100,100)"
+		if (supplier.products) {
+			for (i = 0; i < supplier.products.length; i++){
+				supplier.products[i].rating = 
+					Number(supplier.products[i].csr_part?0:2) +
+					Number(supplier.products[i].visible_part?0:2) +
+					Number(supplier.products[i].new_process?0:1) +
+					Number(supplier.products[i].new_technology?0:1) +
+					Number(supplier.products[i].new_commodity?0:1) +
+					Number(supplier.products[i].new_commodity?0:1) +
+					Number(3 - Math.log(supplier.products[i].nb_of_operations))
+			}
+
+			opposit_risk = 0
+			for (i = 0; i < supplier.products.length; i++){
+				opposit_risk += Math.pow((10-supplier.products[i].rating), 10);
+			}
+
+			opposit_risk = Math.round(Math.pow(opposit_risk, 1/10)*10)/10;
+			supplier.product_rating = 10-opposit_risk;
+			supplier.product_rating = Math.round((supplier.capacity_rating<1?1:supplier.capacity_rating)*10)/10;
+		} else {
+			supplier.product_rating = 5
+		}
 
 		//////calculation quality rating ////////
-		supplier.quality_rating = 5
-		supplier.quality_rating_color = "rgb(100,100,100)"
+		ases_score = 1.5
+		if (supplier.quality.ases_result) {
+			ases_score = 
+			Number(supplier.quality.ases_result.startsWith("A")?3:
+				Number(supplier.quality.ases_result.startsWith("B")?2:
+					Number(supplier.quality.ases_result.startsWith("C")?1:0)))
+
+		}
+
+		peses_score = 1.5
+		if (supplier.quality.peses_result) {
+			peses_score =  
+			Number(supplier.quality.ases_result.startsWith("A")?3:
+				Number(supplier.quality.ases_result.startsWith("B")?2:
+					Number(supplier.quality.ases_result.startsWith("C")?1:0)))
+		}
+
+		shc_score = 0.5
+		if (supplier.quality.shc_result) {
+			shc_score = Number((supplier.quality.shc_result-70)/30)
+		}
+
+		supplier.quality_rating = Math.round((
+			Number(ases_score) +
+			Number(supplier.quality.non_confirmed_eng_changes?0:1) +
+			Number(peses_score) +
+			Number(supplier.quality.project_concerns?0:1) +
+			Number(shc_score) +
+			Number(supplier.quality.white_book_parts?0:1))*10)/10
+
+		// console.log(supplier.quality.ases_result?"a":"b")
+		// console.log(ases_score)
+		// console.log(peses_score)
+		// console.log(shc_score)
+
 
 		//////calculation overall rating ////////
 		supplier.overall_rating = Math.round((supplier.environment_rating * supplier.logistics_rating *
 			supplier.capacity_rating * supplier.product_rating * supplier.quality_rating)*1)/10;
 
+		/// coloring moved to extra service
 		supplier = service.colorPageRectangles(supplier)
 
 		return supplier;
@@ -171,7 +237,7 @@ function SupplierService($http, $stateParams){
 	}
 
 	service.save_all = function(supplier) {
-		console.log("sending user data to server")
+		// console.log("sending user data to server")
 		delete supplier.start_of_deliveries
 
 		// var supplier = {ipn: login,

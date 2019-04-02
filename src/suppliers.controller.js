@@ -17,7 +17,7 @@ function SuppliersService($http, $stateParams){
 			return response.data
 		},
 		function error(response){
-			console.log("error", response)
+			// console.log("error", response)
 		});
 	}
 

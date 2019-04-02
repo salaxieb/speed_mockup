@@ -6,14 +6,14 @@ ClientService.$inject = ['$http', '$stateParams', 'SupplierService','SuppliersSe
 function ClientService($http, $stateParams, SupplierService, SuppliersService, $q){
 	var service = this;
 	service.client = function (client_code){
-		console.log("client_code in service", client_code)
+		// console.log("client_code in service", client_code)
 		return $http({
 			method: "GET",
 			url: server_uri + "clients/" + client_code, 
 		})
 		.then(
 		function successful(response){
-			console.log("reponse.data in service", response.data)
+			// console.log("reponse.data in service", response.data)
 			return response.data
 		},
 		function error(response){
@@ -25,7 +25,7 @@ function ClientService($http, $stateParams, SupplierService, SuppliersService, $
 	service.giveRatingForClient = function (client) {
 		suppliers = []
 		for (t = 0; t < client.suppliers.length; t++) {
-			console.log(client.suppliers[t])
+			// console.log(client.suppliers[t])
 			var supplier = SupplierService.giveRatingForSupplier(client.suppliers[t])
 			supplier_short = {
 				_id: supplier._id,
@@ -51,7 +51,7 @@ function ClientService($http, $stateParams, SupplierService, SuppliersService, $
 			suppliers.push(supplier_short)
 		};
 		client.suppliers = suppliers;
-		console.log("final list of suppliers", client.suppliers)
+		// console.log("final list of suppliers", client.suppliers)
 
 
 
@@ -72,7 +72,7 @@ function ClientService($http, $stateParams, SupplierService, SuppliersService, $
 	   	client.logistics_rating = 5
 	   	client.capacity_rating = 1
 	   	client.product_rating = 5
-	   	client.quality_rating = 5
+	   	client.quality_rating = 6.5
 
 	   	if (client.suppliers.length>0) {
 		   	client.environment_rating = Math.round((total_environment/client.suppliers.length)*10)/10;
@@ -90,6 +90,8 @@ function ClientService($http, $stateParams, SupplierService, SuppliersService, $
 	   	client.environment_rating_color = ColorBasedOnRating(client.environment_rating);
 	   	client.logistics_rating_color = ColorBasedOnRating(client.logistics_rating);
 	   	client.capacity_rating_color = ColorBasedOnRating(client.capacity_rating);
+	   	client.product_rating_color = ColorBasedOnRating(client.product_rating);
+	   	client.quality_rating_color = ColorBasedOnRating(client.quality_rating);
 
 		return client
 
@@ -101,7 +103,7 @@ function ClientService($http, $stateParams, SupplierService, SuppliersService, $
 ClientController.$inject = ['client', 'ClientService', 'SuppliersService', 'SupplierService', '$q', '$timeout'];
 function ClientController(client, ClientService, SuppliersService, SupplierService, $q, $timeout) {
 	var ctrl = this;
-	console.log("client", client)
+	// console.log("client", client)
 	ctrl.client = client;
 	ctrl.list_loaded = false;
 
@@ -125,14 +127,14 @@ function ClientController(client, ClientService, SuppliersService, SupplierServi
 		// console.log(SupplierService.giveRatingForSupplier(response[2].data))
 		// console.log("response.length", response.length)
 		for (t = 0; t < response.length; t++) {
-			console.log("response", response[t].data)
+			// console.log("response", response[t].data)
 			var supplier = response[t].data;
 			ctrl.client.suppliers.push(supplier)
 		};
-		console.log("final list of suppliers", ctrl.client.suppliers)
+		// console.log("final list of suppliers", ctrl.client.suppliers)
 
 		ctrl.client = ClientService.giveRatingForClient(ctrl.client);
-		console.log("cliiiiient", ctrl.client)
+		// console.log("cliiiiient", ctrl.client)
 		ctrl.list_loaded = true;
 
 		$timeout(after_page_load_coloring_suppliers, 200);

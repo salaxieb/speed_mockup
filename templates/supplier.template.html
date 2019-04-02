@@ -226,7 +226,7 @@
 
     <div class="container-fluid p-3 m-0 mt-3 main-content">
       <div class="flex-row p-2 row">
-        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Environment risks score </div>
+        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Environment score </div>
         <div class="p-1 rating-content d-flex align-items-center justify-content-center environment">
         {{ctrl.supplier.environment_rating}}</div>
         <div class="p-1 d-flex align-items-center justify-content-center">Average: 6 - 12-th</div>
@@ -267,7 +267,7 @@
 
     <div class="container-fluid p-3 m-0 mt-3 main-content">
       <div class="flex-row p-2 row">
-        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Logistics risks score </div>
+        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Logistics score </div>
         <div class="p-1 rating-content d-flex align-items-center justify-content-center logistics">{{ctrl.supplier.logistics_rating}}</div>
         <div class="p-1 d-flex align-items-center justify-content-center">Average: 2.3 - 23-rd</div>
       </div>
@@ -419,7 +419,7 @@
 
     <div class="container-fluid p-3 m-0 mt-3 main-content">
       <div class="flex-row p-2 row">
-        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Capacity risks score </div>
+        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Capacity score </div>
         <div class="p-1 rating-content d-flex align-items-center justify-content-center capacity">{{ctrl.supplier.capacity_rating}}</div>
         <div class="p-1 d-flex align-items-center justify-content-center">Average: 5.6 - 35-th</div>
       </div>
@@ -478,7 +478,7 @@
 
     <div class="container-fluid p-3 m-0 mt-3 main-content">
       <div class="flex-row p-2 row">
-        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Product risks score </div>
+        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Product score </div>
         <div class="p-1 rating-content d-flex align-items-center justify-content-center product">{{ctrl.supplier.product_rating}}</div>
         <div class="p-1 d-flex align-items-center justify-content-center">Average: 5 - 1-st</div>
       </div>
@@ -493,37 +493,196 @@
         <div class="m-1 pl-3 d-flex align-items-end value nb-operations"><b>Nb of operations:</b></div>
       </div>
 
-      <div class="flex-row pl-2 pr-2 pb-0 pt-0 row product-row">
-        <div class="m-1 d-flex justify-content-center align-items-center commodity content foov">Stamping</div>
-        <div class="m-1 d-flex justify-content-center align-items-center csr-parts"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square check"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center visible-part"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center new-process"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center new-technology"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center new-commodity"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center nb-operations"><div class="p-2 d-flex justify-content-center align-items-center value content check-square">24</div></div>
-      </div>
 
-      <div class="flex-row pl-2 pr-2 pb-0 pt-0 row product-row">
-        <div class="m-1 d-flex justify-content-center align-items-center commodity content foov">Wires</div>
-        <div class="m-1 d-flex justify-content-center align-items-center csr-parts"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center visible-part"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center new-process"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center new-technology"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center new-commodity"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center nb-operations"><div class="p-2 d-flex justify-content-center align-items-center value content check-square">24</div></div>
-      </div>
+      <div ng-repeat="product in ctrl.supplier.products">
+        <div class="flex-row pl-2 pr-2 pb-0 pt-0 row product-row">
+          <div class="m-1 d-flex justify-content-center align-items-center commodity content">{{product.commodity_name}}</div>
+          <div class="m-1 d-flex justify-content-center align-items-center csr-parts"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square" ng-class="{{product.csr_part}} ? 'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div></div>
 
-      <div class="flex-row pl-2 pr-2 pb-0 pt-0 row product-row">
-        <div class="m-1 d-flex justify-content-center align-items-center commodity content foov">Wires</div>
-        <div class="m-1 d-flex justify-content-center align-items-center csr-parts"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center visible-part"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center new-process"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center new-technology"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center new-commodity"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square"><i class="fa fa-check fa-lg"></i></div></div>
-        <div class="m-1 d-flex justify-content-center align-items-center nb-operations"><div class="p-2 d-flex justify-content-center align-items-center value content check-square">24</div></div>
+          <div class="m-1 d-flex justify-content-center align-items-center visible-part"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square" ng-class="{{product.visible_part}} ? 'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div></div>
+
+          <div class="m-1 d-flex justify-content-center align-items-center new-process"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square" ng-class="{{product.new_process}} ? 'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div></div>
+
+          <div class="m-1 d-flex justify-content-center align-items-center new-technology"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square" ng-class="{{product.new_technology}} ? 'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div></div>
+
+          <div class="m-1 d-flex justify-content-center align-items-center new-commodity"><div class="p-2 d-flex justify-content-center align-items-center bad-value value content check-square" ng-class="{{product.new_commodity}} ? 'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div></div>
+
+          <div class="m-1 d-flex justify-content-center align-items-center nb-operations"><div class="p-2 d-flex justify-content-center align-items-center value content check-square">{{product.nb_of_operations}}</div></div>
+        </div>
       </div>
 
     </div>
+
+
+
+
+
+    <div class="container-fluid p-3 m-0 mt-3 main-content">
+      <div class="flex-row p-2 row">
+        <div class="p-1 mr-2 d-flex domain-title align-items-center justify-content-center"> Quality score </div>
+        <div class="p-1 rating-content d-flex align-items-center justify-content-center quality">{{ctrl.supplier.quality_rating}}</div>
+        <div class="p-1 d-flex align-items-center justify-content-center">Average: 5 - 1-st</div>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>ASES score: </b></div>
+        <div class="p-1 value content"> {{ctrl.supplier.quality.ases_result}} </div>
+        <div class="p-1 value"><a href="#"> ASES audit report 13.03.2015.pdf</a> </div>
+      </div>
+      <div class="flex-row pl-3 value-comment row">
+        min result: D70 - 15-th
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>PESES: </b></div>
+        <div class="p-1 value content"> {{ctrl.supplier.quality.peses_result}} </div>
+        <div class="p-1 value"><a href="#"> PESES audit report 07.03.2015.pdf</a> </div>
+      </div>
+      <div class="flex-row pl-3 value-comment row">
+        min audit result: D70 - 15-th
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>S-HC: </b></div>
+        <div class="p-1 value content"> {{ctrl.supplier.quality.shc_result}} </div>
+      </div>
+      <div class="flex-row pl-3 value-comment row">
+        max: 100% - 10-th
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Historical project concerns:</b></div>
+        <div class="p-1 value content check-square d-flex justify-content-center align-items-center" ng-class="{{ctrl.supplier.quality.project_concerns}} ? 'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>White book parts:</b></div>
+        <div class="p-1 value content check-square d-flex justify-content-center align-items-center" ng-class="{{ctrl.supplier.quality.white_book_parts}} ? 'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>Non confirmed eng.changes:</b></div>
+        <div class="p-1 value content check-square d-flex justify-content-center align-items-center" ng-class="{{ctrl.supplier.quality.non_confirmed_eng_changes}} ? 'true':'false'"><i class="fa fa-check fa-lg bad-value d-none"></i><i class="fa fa-times fa-lg good-value d-none" aria-hidden="true"></i></div>
+      </div>
+
+      <div class="flex-row p-2 row">
+        <div class="p-1 value"><b>RQP: </b></div>
+        <div class="p-1 value content"> {{ctrl.supplier.quality.rqp_result}} </div>
+        <div class="p-1 value"><a href="#"> RQP audit report 07.03.2014.pdf</a> </div>
+      </div>
+      <div class="flex-row pl-3 value-comment row">
+        min: 90 - 10-th
+      </div>
+
+      <div class="flex-column p-2 row">
+        <div class="flex-row p-1 title"> Ranking: </div>
+        <div class="flex-row p-0 m-0 row">
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"><b>1Y</b></div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>6M</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W26</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W27</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W28</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W29</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60   </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-row pl-3 value-comment row">
+        Average: 20 - 10-th
+      </div>
+
+      <div class="flex-column p-2 row">
+        <div class="flex-row p-1 title"> SP-3MIS: </div>
+        <div class="flex-row p-0 m-0 row">
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"><b>1Y</b></div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>6M</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W26</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W27</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W28</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W29</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60   </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-row pl-3 value-comment row">
+        Average: 20 - 10-th
+      </div>
+
+      <div class="flex-column p-2 row">
+        <div class="flex-row p-1 title"> Reactivity 1D-4D: </div>
+        <div class="flex-row p-0 m-0 row">
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"><b>1Y</b></div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>6M</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W26</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W27</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W28</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
+          </div>
+          <div class="p-0 m-1 flex-column">
+            <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W29</b> </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60   </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-row pl-3 value-comment row">
+        Average: 20 - 10-th
+      </div>
+
+
+
+    
+    </div>
+
+
+
+
+
+
 
   </div>
 
