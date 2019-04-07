@@ -13,7 +13,7 @@ function SupplierService($http, $stateParams){
 		})
 		.then(
 		function successful(response){
-			// console.log("reponse.data in supplier service", response.data)
+			console.log("reponse.data in supplier service", response.data)
 			return response.data
 		},
 		function error(response){
@@ -250,8 +250,8 @@ function SupplierService($http, $stateParams){
 }
 
 
-SupplierController.$inject = ['$rootScope', '$state', 'supplier', 'SuppliersService', 'SupplierService', 'ClientsService','$q','$scope', '$timeout'];
-function SupplierController($rootScope, $state, supplier, SuppliersService, SupplierService, ClientsService, $q, $scope, $timeout) {
+SupplierController.$inject = ['$rootScope', '$state', 'supplier', 'SuppliersService', 'SupplierService', 'ClientsService','$q','$scope', '$timeout', '$transitions'];
+function SupplierController($rootScope, $state, supplier, SuppliersService, SupplierService, ClientsService, $q, $scope, $timeout, $transitions) {
 	$rootScope.$state = $state
 	// console.log("$$$$$$$$$$$$state", $state)
 	var ctrl = this;
@@ -378,6 +378,14 @@ function SupplierController($rootScope, $state, supplier, SuppliersService, Supp
 			, 500);
 	}
 
+	/////////// filling up default values for capacity///////
+	for (var i=0; i<ctrl.supplier.capacity.capacity_files.length; i++) {
+		if (ctrl.supplier.capacity.capacity_files[i].new_shift_lead_time == undefined){ctrl.supplier.capacity.capacity_files[i].new_shift_lead_time = 3}		
+		if (ctrl.supplier.capacity.capacity_files[i].capacity_audit_result == undefined){ctrl.supplier.capacity.capacity_files[i].capacity_audit_result = "OK"}
+		if (ctrl.supplier.capacity.capacity_files[i].manual_process == undefined){ctrl.supplier.capacity.capacity_files[i].manual_process = false}
+	} 
+	// console.log(ctrl.supplier.capacity.capacity_files)
+
 	/////////saving data from edit page////
 	ctrl.save_all = function () {
 		element = document.getElementsByClassName("main-container")[1];
@@ -385,6 +393,7 @@ function SupplierController($rootScope, $state, supplier, SuppliersService, Supp
 
 		// console.log("saving_started")
 		supplier = ctrl.supplier
+
 
 		console.log("AAAAA удаляем данные поставщика АААААА")
   		// delete supplier.capacity
@@ -396,11 +405,13 @@ function SupplierController($rootScope, $state, supplier, SuppliersService, Supp
 
 			function successs (response){
 				console.log("SUCCCESS");
+				ctrl.supplier = SupplierService.giveRatingForSupplier(ctrl.supplier)
 				element = document.getElementsByClassName("main-container")[1];
 				element.style.backgroundColor = "rgb(212,237,218)";
 				$timeout(function(){
 					element.style.backgroundColor = "";
 				}, 800)
+
 			}, 
 			function error (response){
 				console.log("FAILURE")
@@ -429,7 +440,14 @@ function SupplierController($rootScope, $state, supplier, SuppliersService, Supp
 	}
 
 	ctrl.changeValue = function(variable, id) {
+		// console.log("id", id)
+		// console.log("variable", variable)
 		classes = document.getElementById(id).className.split(" ")
+
+		if (eval(variable)==undefined) {
+			eval(variable + '= false')
+		}
+
 		value = eval(variable)
 		for (var i = 0; i < classes.length; i++) {
 			if (classes[i] == eval(variable).toString()) {
@@ -446,11 +464,19 @@ function SupplierController($rootScope, $state, supplier, SuppliersService, Supp
 	  return Math.ceil((((this - onejan) / 86400000) + onejan.getDay()+1)/7);
 	}
 
+	//for action plan field
 	ctrl.parseDate = function(date) {
 		date =  new Date(date);
 		parsed_date = "W" + date.getWeek() + " " + date.getFullYear();
 		return parsed_date
 	}
+
+	$transitions.onSuccess({}, function(transition) {
+  		console.log("Successful Transition from " + transition.from().name + " to " + transition.to().name);
+  		SupplierService.colorPageRectangles(ctrl.supplier)
+  	});
+
+  	$timeout(function(){SupplierService.colorPageRectangles(ctrl.supplier)}, 300)
 
 	////////////
 	// Charts //

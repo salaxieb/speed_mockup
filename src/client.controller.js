@@ -72,7 +72,7 @@ function ClientService($http, $stateParams, SupplierService, SuppliersService, $
 	   	client.logistics_rating = 5
 	   	client.capacity_rating = 1
 	   	client.product_rating = 5
-	   	client.quality_rating = 6.5
+	   	client.quality_rating = 6
 
 	   	if (client.suppliers.length>0) {
 		   	client.environment_rating = Math.round((total_environment/client.suppliers.length)*10)/10;

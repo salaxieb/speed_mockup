@@ -234,7 +234,7 @@
 
       <div class="flex-row p-2 row">
         <div class="p-1 value"><b>Start of deliveries: </b></div>
-        <div class="p-1 value content">{{ctrl.supplier.start_of_deliveries}}</div>
+        <div class="p-1 value content">{{ctrl.supplier.overall.start_of_deliveries}}</div>
 
         <div class="p-1 value"><b>Alliance supplier for:</b></div>
         <div class="p-1 value content value">{{ctrl.supplier.supplier_for}}</div>
@@ -334,7 +334,7 @@
 
       <div class="flex-row p-2 row">
         <div class="p-1 value"><b>Action plan status: </b></div>
-        <div class="p-1 value content"> {{ctrl.supplier.logistics.assce_audit_ap_status}}</div>
+        <div class="p-1 value content" ng-class="ctrl.supplier.logistics.assce_audit_ap_status=='in process'?'bad-value':ctrl.supplier.logistics.assce_audit_ap_status=='closed'?'good-value':''"> {{ctrl.supplier.logistics.assce_audit_ap_status}}</div>
       </div>
 
       <div class="flex-row p-2 row">
@@ -353,7 +353,7 @@
 
       <div class="flex-row p-2 row">
         <div class="p-1 value"><b>Action plan status: </b></div>
-        <div class="p-1 value content bad-value"> {{ctrl.supplier.logistics.aplf_audit_ap_status}} </div>
+        <div class="p-1 value content" ng-class="ctrl.supplier.logistics.aplf_audit_ap_status=='in process'?'bad-value':ctrl.supplier.logistics.aplf_audit_ap_status=='closed'?'good-value':''"> {{ctrl.supplier.logistics.aplf_audit_ap_status}} </div>
       </div>
 
       <div class="flex-column p-2 row">
@@ -361,27 +361,27 @@
         <div class="flex-row p-0 m-0 row">
           <div class="p-0 m-1 flex-column">
             <div class="p-1 d-flex value align-items-center justify-content-center"><b>1Y</b></div>
-            <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
           </div>
           <div class="p-0 m-1 flex-column">
             <div class="p-1 d-flex value align-items-center justify-content-center"> <b>6M</b> </div>
-            <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 90 </div>
           </div>
           <div class="p-0 m-1 flex-column">
             <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W26</b> </div>
-            <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 96 </div>
           </div>
           <div class="p-0 m-1 flex-column">
             <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W27</b> </div>
-            <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 80 </div>
           </div>
           <div class="p-0 m-1 flex-column">
             <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W28</b> </div>
-            <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 75 </div>
           </div>
           <div class="p-0 m-1 flex-column">
             <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W29</b> </div>
-            <div class="p-1 d-flex value content align-items-center justify-content-center"> ?   </div>
+            <div class="p-1 d-flex value content align-items-center justify-content-center"> 60 </div>
           </div>
         </div>
       </div>
@@ -392,27 +392,27 @@
       <div class="flex-row pl-2 mt-0 pt-0 row">
         <div class="p-0 m-1 flex-column">
           <div class="p-1 d-flex value align-items-center justify-content-center"><b>1Y</b></div>
-          <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> 97 </div>
         </div>
         <div class="p-0 m-1 flex-column">
           <div class="p-1 d-flex value align-items-center justify-content-center"> <b>6M</b> </div>
-          <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> 97 </div>
         </div>
         <div class="p-0 m-1 flex-column">
           <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W26</b> </div>
-          <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
         </div>
         <div class="p-0 m-1 flex-column">
           <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W27</b> </div>
-          <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
         </div>
         <div class="p-0 m-1 flex-column">
           <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W28</b> </div>
-          <div class="p-1 d-flex value content align-items-center justify-content-center"> ? </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> 100 </div>
         </div>
         <div class="p-0 m-1 flex-column">
           <div class="p-1 d-flex value align-items-center justify-content-center"> <b>W29</b> </div>
-          <div class="p-1 d-flex value content align-items-center justify-content-center"> ?  </div>
+          <div class="p-1 d-flex value content align-items-center justify-content-center"> 100  </div>
         </div>
       </div>
     </div>
@@ -474,6 +474,9 @@
         
         <script src="src/capacity_graph_supplier.js"></script>
     </div>
+
+
+
 
 
     <div class="container-fluid p-3 m-0 mt-3 main-content">
